@@ -1,0 +1,688 @@
+{
+  "source_files": 85,
+  "archive_items": 85,
+  "all_source_ids": [
+    "A001",
+    "A002",
+    "A003",
+    "A004",
+    "A005",
+    "A006",
+    "A007",
+    "A008",
+    "A009",
+    "A010",
+    "A011",
+    "A012",
+    "A013",
+    "A014",
+    "A015",
+    "A016",
+    "A017",
+    "A018",
+    "A019",
+    "A020",
+    "A021",
+    "A022",
+    "A023",
+    "A024",
+    "A025",
+    "A026",
+    "A027",
+    "A028",
+    "A029",
+    "A030",
+    "A031",
+    "A032",
+    "A033",
+    "A034",
+    "A035",
+    "A036",
+    "A037",
+    "A038",
+    "A039",
+    "A040",
+    "A041",
+    "A042",
+    "A043",
+    "A044",
+    "A045",
+    "A046",
+    "A047",
+    "A048",
+    "A049",
+    "A050",
+    "A051",
+    "A052",
+    "A053",
+    "A054",
+    "A055",
+    "A056",
+    "A057",
+    "A058",
+    "A059",
+    "A060",
+    "A061",
+    "A062",
+    "A063",
+    "A064",
+    "A065",
+    "A066",
+    "A067",
+    "A068",
+    "A069",
+    "A070",
+    "A071",
+    "A072",
+    "A073",
+    "A074",
+    "A075",
+    "A076",
+    "A077",
+    "A078",
+    "A079",
+    "A080",
+    "A081",
+    "A082",
+    "A083",
+    "A084",
+    "B001"
+  ],
+  "mapping": [
+    {
+      "id": "A001",
+      "source": "COPYRIGHT.ai",
+      "group": "brand",
+      "kind": "document",
+      "title": "카피라이트 가이드"
+    },
+    {
+      "id": "A002",
+      "source": "공통_썸네일.jpg",
+      "group": "product",
+      "kind": "image",
+      "title": "전체 제품 라인업"
+    },
+    {
+      "id": "A003",
+      "source": "로고.png",
+      "group": "brand",
+      "kind": "image",
+      "title": "프린세스 캐치! 티니핑 로고"
+    },
+    {
+      "id": "A004",
+      "source": "로고_카피라이트_가이드라인.pdf",
+      "group": "brand",
+      "kind": "document",
+      "title": "로고·카피라이트 가이드 6페이지"
+    },
+    {
+      "id": "A005",
+      "source": "리미티드/PNG/깨끗한 화이트 배경.png",
+      "group": "product",
+      "kind": "image",
+      "title": "리미티드 2종 라인업"
+    },
+    {
+      "id": "A006",
+      "source": "리미티드/PNG/레이어 0.png",
+      "group": "product",
+      "kind": "image",
+      "title": "이클립스핑 리미티드"
+    },
+    {
+      "id": "A007",
+      "source": "리미티드/PNG/레이어 11.png",
+      "group": "product",
+      "kind": "image",
+      "title": "다이아나핑 리미티드"
+    },
+    {
+      "id": "A008",
+      "source": "리미티드/그룹.jpg",
+      "group": "product",
+      "kind": "image",
+      "title": "리미티드 구성"
+    },
+    {
+      "id": "A009",
+      "source": "리미티드/대표이미지.jpg",
+      "group": "product",
+      "kind": "image",
+      "title": "리미티드 대표 비주얼"
+    },
+    {
+      "id": "A010",
+      "source": "싱글팩/PNG/다이아나핑.png",
+      "group": "product",
+      "kind": "image",
+      "title": "다이아나핑 싱글팩"
+    },
+    {
+      "id": "A011",
+      "source": "싱글팩/PNG/이클립스핑.png",
+      "group": "product",
+      "kind": "image",
+      "title": "이클립스핑 싱글팩"
+    },
+    {
+      "id": "A012",
+      "source": "싱글팩/PNG/일반_다이아나핑 복사.png",
+      "group": "product",
+      "kind": "image",
+      "title": "다이아나핑 패키지 다른 각도"
+    },
+    {
+      "id": "A013",
+      "source": "싱글팩/PNG/일반_이클립스핑 복사.png",
+      "group": "product",
+      "kind": "image",
+      "title": "이클립스핑 패키지 다른 각도"
+    },
+    {
+      "id": "A014",
+      "source": "싱글팩/PNG/일반_하츄핑 복사.png",
+      "group": "product",
+      "kind": "image",
+      "title": "하츄핑 패키지 다른 각도"
+    },
+    {
+      "id": "A015",
+      "source": "싱글팩/PNG/하츄핑.png",
+      "group": "product",
+      "kind": "image",
+      "title": "하츄핑 싱글팩"
+    },
+    {
+      "id": "A016",
+      "source": "싱글팩/그룹 (1).png",
+      "group": "product",
+      "kind": "image",
+      "title": "싱글팩 3종 구성"
+    },
+    {
+      "id": "A017",
+      "source": "싱글팩/그룹 (2).png",
+      "group": "product",
+      "kind": "image",
+      "title": "싱글팩 3종 라인업"
+    },
+    {
+      "id": "A018",
+      "source": "싱글팩/기본 (1).jpg",
+      "group": "product",
+      "kind": "image",
+      "title": "이클립스핑 제품 이미지"
+    },
+    {
+      "id": "A019",
+      "source": "싱글팩/기본 (2).jpg",
+      "group": "product",
+      "kind": "image",
+      "title": "하츄핑 제품 이미지"
+    },
+    {
+      "id": "A020",
+      "source": "싱글팩/기본 (3).jpg",
+      "group": "product",
+      "kind": "image",
+      "title": "다이아나핑 제품 이미지"
+    },
+    {
+      "id": "A021",
+      "source": "싱글팩/대표이미지.jpg",
+      "group": "product",
+      "kind": "image",
+      "title": "싱글팩 대표 비주얼"
+    },
+    {
+      "id": "A022",
+      "source": "싱글팩/케이스컷 (1).jpg",
+      "group": "product",
+      "kind": "image",
+      "title": "다이아나핑 팩·케이스·배지"
+    },
+    {
+      "id": "A023",
+      "source": "싱글팩/케이스컷 (2).jpg",
+      "group": "product",
+      "kind": "image",
+      "title": "이클립스핑 팩·케이스·배지"
+    },
+    {
+      "id": "A024",
+      "source": "싱글팩/케이스컷 (3).jpg",
+      "group": "product",
+      "kind": "image",
+      "title": "하츄핑 팩·케이스·배지"
+    },
+    {
+      "id": "A025",
+      "source": "인스타/01.jpg",
+      "group": "digital",
+      "kind": "image",
+      "title": "후기 콘셉트 카드 01"
+    },
+    {
+      "id": "A026",
+      "source": "인스타/02.jpg",
+      "group": "digital",
+      "kind": "image",
+      "title": "후기 콘셉트 카드 02"
+    },
+    {
+      "id": "A027",
+      "source": "인스타/03.jpg",
+      "group": "digital",
+      "kind": "image",
+      "title": "후기 콘셉트 카드 03"
+    },
+    {
+      "id": "A028",
+      "source": "인스타/04.jpg",
+      "group": "digital",
+      "kind": "image",
+      "title": "후기 콘셉트 카드 04"
+    },
+    {
+      "id": "A029",
+      "source": "인스타/260609_티니핑상페_원본.png",
+      "group": "digital",
+      "kind": "image",
+      "title": "상품 상세페이지 전체"
+    },
+    {
+      "id": "A030",
+      "source": "인스타/ChatGPT Image 2026년 7월 28일 오후 01_51_37 복사.jpg",
+      "group": "usage",
+      "kind": "image",
+      "title": "AI 제품 연출 비주얼"
+    },
+    {
+      "id": "A031",
+      "source": "인스타/ㄹㄴㅇㄹ (2).jpg",
+      "group": "digital",
+      "kind": "image",
+      "title": "출시 이벤트 표지"
+    },
+    {
+      "id": "A032",
+      "source": "인스타/ㄹㄴㅇㄹ (3).jpg",
+      "group": "digital",
+      "kind": "image",
+      "title": "3가지 배지 타입 안내"
+    },
+    {
+      "id": "A033",
+      "source": "인스타/ㄹㄴㅇㄹ (4).jpg",
+      "group": "digital",
+      "kind": "image",
+      "title": "3가지 케이스 안내"
+    },
+    {
+      "id": "A034",
+      "source": "인스타/ㄹㄴㅇㄹ (5).jpg",
+      "group": "digital",
+      "kind": "image",
+      "title": "이벤트 참여 안내"
+    },
+    {
+      "id": "A035",
+      "source": "인스타/인스타_카드뉴스.jpg",
+      "group": "digital",
+      "kind": "image",
+      "title": "제품 활용 소개 카드"
+    },
+    {
+      "id": "A036",
+      "source": "인스타/카드뉴스_다이어리.jpg",
+      "group": "digital",
+      "kind": "image",
+      "title": "다이어리 꾸미기 카드"
+    },
+    {
+      "id": "A037",
+      "source": "인스타/카드뉴스_싱글팩.jpg",
+      "group": "digital",
+      "kind": "image",
+      "title": "싱글팩 소개 카드"
+    },
+    {
+      "id": "A038",
+      "source": "인스타/티니핑딱지_홍보포스터.jpg",
+      "group": "promotion",
+      "kind": "image",
+      "title": "제품 홍보 포스터"
+    },
+    {
+      "id": "A039",
+      "source": "지기구조/다이소딱지-01.png",
+      "group": "packaging",
+      "kind": "image",
+      "title": "다이소 골드 타입"
+    },
+    {
+      "id": "A040",
+      "source": "지기구조/다이소딱지-02.png",
+      "group": "packaging",
+      "kind": "image",
+      "title": "다이소 샤이닝 타입"
+    },
+    {
+      "id": "A041",
+      "source": "지기구조/다이소딱지-03.png",
+      "group": "packaging",
+      "kind": "image",
+      "title": "다이소 스파클 타입"
+    },
+    {
+      "id": "A042",
+      "source": "지기구조/딱지파우치-01.png",
+      "group": "packaging",
+      "kind": "image",
+      "title": "하츄핑 파우치 앞뒤"
+    },
+    {
+      "id": "A043",
+      "source": "지기구조/딱지파우치-02.png",
+      "group": "packaging",
+      "kind": "image",
+      "title": "다이아나핑 파우치 앞뒤"
+    },
+    {
+      "id": "A044",
+      "source": "지기구조/딱지파우치-03.png",
+      "group": "packaging",
+      "kind": "image",
+      "title": "이클립스핑 파우치 앞뒤"
+    },
+    {
+      "id": "A045",
+      "source": "지기구조/딱지파우치_디스플레이박스-01.png",
+      "group": "packaging",
+      "kind": "image",
+      "title": "하츄핑 디스플레이 전개도"
+    },
+    {
+      "id": "A046",
+      "source": "지기구조/딱지파우치_디스플레이박스-02.png",
+      "group": "packaging",
+      "kind": "image",
+      "title": "다이아나핑 디스플레이 전개도"
+    },
+    {
+      "id": "A047",
+      "source": "지기구조/딱지파우치_디스플레이박스-03.png",
+      "group": "packaging",
+      "kind": "image",
+      "title": "이클립스핑 디스플레이 전개도"
+    },
+    {
+      "id": "A048",
+      "source": "지기구조/리미티드_이벤트.jpg",
+      "group": "promotion",
+      "kind": "image",
+      "title": "리미티드 1+1 이벤트"
+    },
+    {
+      "id": "A049",
+      "source": "지기구조/리미티드에디션-01.png",
+      "group": "packaging",
+      "kind": "image",
+      "title": "다이아나핑 리미티드 전개도"
+    },
+    {
+      "id": "A050",
+      "source": "지기구조/리미티드에디션-02.png",
+      "group": "packaging",
+      "kind": "image",
+      "title": "이클립스핑 리미티드 전개도"
+    },
+    {
+      "id": "A051",
+      "source": "지기구조/싱글팩-01.png",
+      "group": "packaging",
+      "kind": "image",
+      "title": "하츄핑 싱글팩 전개도"
+    },
+    {
+      "id": "A052",
+      "source": "지기구조/싱글팩-02.png",
+      "group": "packaging",
+      "kind": "image",
+      "title": "다이아나핑 싱글팩 전개도"
+    },
+    {
+      "id": "A053",
+      "source": "지기구조/싱글팩-03.png",
+      "group": "packaging",
+      "kind": "image",
+      "title": "이클립스핑 싱글팩 전개도"
+    },
+    {
+      "id": "A054",
+      "source": "지기구조/카톤박스.png",
+      "group": "production",
+      "kind": "image",
+      "title": "물류용 카톤박스 인쇄 그래픽"
+    },
+    {
+      "id": "A055",
+      "source": "지기구조/케이스파우치.png",
+      "group": "production",
+      "kind": "image",
+      "title": "크리스탈 케이스 보호 파우치"
+    },
+    {
+      "id": "A056",
+      "source": "지기구조/풀박스.png",
+      "group": "packaging",
+      "kind": "image",
+      "title": "풀박스 전개도"
+    },
+    {
+      "id": "A057",
+      "source": "컨셉컷/34.jpg",
+      "group": "usage",
+      "kind": "image",
+      "title": "블루 케이스 · 보관 연출"
+    },
+    {
+      "id": "A058",
+      "source": "컨셉컷/36.jpg",
+      "group": "usage",
+      "kind": "image",
+      "title": "다이아나핑 · 제품 구성 연출"
+    },
+    {
+      "id": "A059",
+      "source": "컨셉컷/38.jpg",
+      "group": "usage",
+      "kind": "image",
+      "title": "핑크 케이스 · 침실 연출"
+    },
+    {
+      "id": "A060",
+      "source": "컨셉컷/39.jpg",
+      "group": "usage",
+      "kind": "image",
+      "title": "블루 케이스 · 생활 공간 연출"
+    },
+    {
+      "id": "A061",
+      "source": "컨셉컷/42.jpg",
+      "group": "usage",
+      "kind": "image",
+      "title": "핑크 케이스 · 선반 전시"
+    },
+    {
+      "id": "A062",
+      "source": "컨셉컷/43.jpg",
+      "group": "usage",
+      "kind": "image",
+      "title": "자석 배지 · 보드 활용"
+    },
+    {
+      "id": "A063",
+      "source": "컨셉컷/44.jpg",
+      "group": "usage",
+      "kind": "image",
+      "title": "핑크 케이스 · 전시 연출"
+    },
+    {
+      "id": "A064",
+      "source": "컨셉컷/47.jpg",
+      "group": "usage",
+      "kind": "image",
+      "title": "퍼플 케이스 · 배지 넣기"
+    },
+    {
+      "id": "A065",
+      "source": "컨셉컷/52.jpg",
+      "group": "usage",
+      "kind": "image",
+      "title": "블루 케이스 · 배지 넣기"
+    },
+    {
+      "id": "A066",
+      "source": "컨셉컷/53.jpg",
+      "group": "usage",
+      "kind": "image",
+      "title": "다이아나핑 · 탁상 구성"
+    },
+    {
+      "id": "A067",
+      "source": "컨셉컷/55.jpg",
+      "group": "usage",
+      "kind": "image",
+      "title": "퍼플 케이스 · 사용 연출"
+    },
+    {
+      "id": "A068",
+      "source": "컨셉컷/56.jpg",
+      "group": "usage",
+      "kind": "image",
+      "title": "핑크 케이스 · 탁상 구성"
+    },
+    {
+      "id": "A069",
+      "source": "컨셉컷/58.jpg",
+      "group": "usage",
+      "kind": "image",
+      "title": "핑크 케이스 · 보관 연출 01"
+    },
+    {
+      "id": "A070",
+      "source": "컨셉컷/59.jpg",
+      "group": "usage",
+      "kind": "image",
+      "title": "핑크 케이스 · 보관 연출 02"
+    },
+    {
+      "id": "A071",
+      "source": "컨셉컷/66.jpg",
+      "group": "usage",
+      "kind": "image",
+      "title": "아이 놀이 콘셉트 01"
+    },
+    {
+      "id": "A072",
+      "source": "컨셉컷/69.jpg",
+      "group": "usage",
+      "kind": "image",
+      "title": "아이 놀이 콘셉트 02"
+    },
+    {
+      "id": "A073",
+      "source": "컨셉컷/72.jpg",
+      "group": "usage",
+      "kind": "image",
+      "title": "아이 놀이 콘셉트 03"
+    },
+    {
+      "id": "A074",
+      "source": "컨셉컷/73.jpg",
+      "group": "usage",
+      "kind": "image",
+      "title": "아이 놀이 콘셉트 04"
+    },
+    {
+      "id": "A075",
+      "source": "컨셉컷/74.jpg",
+      "group": "usage",
+      "kind": "image",
+      "title": "아이 놀이 콘셉트 05"
+    },
+    {
+      "id": "A076",
+      "source": "컨셉컷/82.jpg",
+      "group": "usage",
+      "kind": "image",
+      "title": "이클립스핑 · 후기 콘셉트"
+    },
+    {
+      "id": "A077",
+      "source": "컨셉컷/83.jpg",
+      "group": "usage",
+      "kind": "image",
+      "title": "다이아나핑 · 후기 콘셉트"
+    },
+    {
+      "id": "A078",
+      "source": "컨셉컷/기본_01.jpg",
+      "group": "usage",
+      "kind": "image",
+      "title": "블루 크리스탈 케이스"
+    },
+    {
+      "id": "A079",
+      "source": "컨셉컷/기본_02.jpg",
+      "group": "usage",
+      "kind": "image",
+      "title": "핑크 크리스탈 케이스"
+    },
+    {
+      "id": "A080",
+      "source": "컨셉컷/기본_03.jpg",
+      "group": "usage",
+      "kind": "image",
+      "title": "퍼플 크리스탈 케이스"
+    },
+    {
+      "id": "A081",
+      "source": "티니핑미스터리뱃지_사양.txt",
+      "group": "production",
+      "kind": "text",
+      "title": "제공 제품 사양"
+    },
+    {
+      "id": "A082",
+      "source": "풀박스/레이어 1.png",
+      "group": "product",
+      "kind": "image",
+      "title": "풀박스 제품 이미지"
+    },
+    {
+      "id": "A083",
+      "source": "풀박스/풀박스_단색배경.jpg",
+      "group": "product",
+      "kind": "image",
+      "title": "풀박스 구성"
+    },
+    {
+      "id": "A084",
+      "source": "풀박스/풀박스_이미지.jpg",
+      "group": "product",
+      "kind": "image",
+      "title": "풀박스 대표 비주얼"
+    },
+    {
+      "id": "B001",
+      "source": "260417_티니핑3종딱지(최종칼선).pdf",
+      "group": "badge",
+      "kind": "document",
+      "title": "배지 제작 시트 · 앞면과 공통 뒷면"
+    }
+  ]
+}

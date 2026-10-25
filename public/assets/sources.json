@@ -1,0 +1,28 @@
+{
+  "images": {
+    "logo": "로고.png",
+    "lineup": "공통_썸네일.jpg",
+    "single": "싱글팩/그룹 (2).png",
+    "single-pink": "싱글팩/PNG/하츄핑.png",
+    "single-lavender": "싱글팩/PNG/다이아나핑.png",
+    "single-purple": "싱글팩/PNG/이클립스핑.png",
+    "full": "풀박스/레이어 1.png",
+    "limited": "리미티드/PNG/깨끗한 화이트 배경.png",
+    "case-blue": "컨셉컷/기본_01.jpg",
+    "case-pink": "컨셉컷/기본_02.jpg",
+    "case-purple": "컨셉컷/기본_03.jpg",
+    "play": "컨셉컷/47.jpg",
+    "display": "컨셉컷/43.jpg",
+    "detail": "인스타/260609_티니핑상페_원본.png",
+    "social-1": "인스타/ㄹㄴㅇㄹ (2).jpg",
+    "social-2": "인스타/ㄹㄴㅇㄹ (3).jpg",
+    "social-3": "인스타/ㄹㄴㅇㄹ (4).jpg",
+    "social-4": "인스타/ㄹㄴㅇㄹ (5).jpg",
+    "ad": "인스타/티니핑딱지_홍보포스터.jpg",
+    "dieline-single": "지기구조/싱글팩-01.png",
+    "dieline-full": "지기구조/풀박스.png",
+    "dieline-limited": "지기구조/리미티드에디션-01.png"
+  },
+  "badge_pdf": "260417_티니핑3종딱지(최종칼선).pdf",
+  "note": "웹 표시용 리사이즈/형식 변환. 배지는 대표 영역이며 고유 목록은 미확정."
+}

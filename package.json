@@ -1,0 +1,18 @@
+{
+  "name": "teenieping-portfolio-wireframe",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "deploy": "node scripts/deploy-github-pages.mjs"
+  },
+  "devDependencies": {
+    "vite": "7.1.12"
+  },
+  "dependencies": {
+    "three": "0.180.0"
+  }
+}
