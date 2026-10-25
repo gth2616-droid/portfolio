@@ -21,7 +21,8 @@ export function getVectorPage(id,index=0){
 export async function croppedVectorSVG(face,rectangle,size=2048){
  const page=await getVectorPage('B001',face==='front'?0:1);
  const [x0,y0,x1,y1]=rectangle;
- return page.text.replace(/<svg\b[^>]*>/,tag=>tag.replace(/\bwidth="[^"]*"/,`width="${size}"`).replace(/\bheight="[^"]*"/,`height="${size}"`).replace(/\bviewBox="[^"]*"/,`viewBox="${x0} ${y0} ${x1-x0} ${y1-y0}"`));
+ const artwork=face==='back'?page.text.replace(/<path\b(?=[^>]*\bstroke="#ec148d")[^>]*\/>/g,''):page.text;
+ return artwork.replace(/<svg\b[^>]*>/,tag=>tag.replace(/\bwidth="[^"]*"/,`width="${size}"`).replace(/\bheight="[^"]*"/,`height="${size}"`).replace(/\bviewBox="[^"]*"/,`viewBox="${x0} ${y0} ${x1-x0} ${y1-y0}"`));
 }
 
 // WebGL samples pixels; regenerate those pixels from the vector operations at
@@ -31,7 +32,7 @@ export async function renderBadgeTexture(face,rectangle,size){
  try{
   const img=new Image();img.src=url;await img.decode();
   const canvas=document.createElement('canvas');canvas.width=canvas.height=size;
-  const context=canvas.getContext('2d');context.drawImage(img,0,0,size,size);
+  const context=canvas.getContext('2d');context.fillStyle='#fff';context.fillRect(0,0,size,size);context.drawImage(img,0,0,size,size);
   return canvas;
  }finally{URL.revokeObjectURL(url);}
 }
