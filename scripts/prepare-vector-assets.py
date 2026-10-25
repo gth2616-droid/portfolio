@@ -87,6 +87,7 @@ for typ in types:
  group=[b for b in badges if b['type']==typ];assert len(group)==24,(typ,len(group))
  for ordinal,b in enumerate(group,1):b.update(typeIndex=ordinal,label=f"{types[typ]['label']} {ordinal:02}")
 (root/'docs/badge-vector-source-map.json').write_text(json.dumps(dict(documents=manifest,types=config['types'],badges=badges,printPositions=positions,duplicateMapping=config['duplicates'],trim=dict(printDiameterMM=60,finishedDiameterMM=54,bleedPerSideMM=3),notes=[config['deduplicationBasis'],'Back cutline coordinates already describe the finished 54mm face; do not trim an additional 3mm.','Only the 3D reverse removes the magenta cutline strokes; original vector reference is unchanged.']),ensure_ascii=False,indent=2))
+lines.append('export const badgeRepresentativeIds = '+json.dumps([f'badge-{i:02}' for i in config['representativePositions']])+';')
 lines.append('export const badgeTypes = '+json.dumps(config['types'],ensure_ascii=False)+';')
 lines.append('export const badgeDesigns = [')
 for b in badges:

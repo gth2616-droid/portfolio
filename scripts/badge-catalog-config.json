@@ -1,13 +1,66 @@
 {
   "types": [
-    {"id":"gold","label":"골드","description":"금색 링 · 클로버 보석 프레임"},
-    {"id":"sparkle","label":"스파클","description":"은색 링 · 하트 보석 프레임"},
-    {"id":"shining","label":"샤이닝","description":"캐릭터 컬러 링 · 원형 보석 프레임"}
+    {
+      "id": "gold",
+      "label": "골드",
+      "description": "금색 링 · 클로버 보석 프레임"
+    },
+    {
+      "id": "sparkle",
+      "label": "스파클",
+      "description": "은색 링 · 하트 보석 프레임"
+    },
+    {
+      "id": "shining",
+      "label": "샤이닝",
+      "description": "캐릭터 컬러 링 · 원형 보석 프레임"
+    }
   ],
-  "sparklePositions": [3,4,5,7,13,14,15,17,24,25,27,34,35,37,44,45,47,54,55,57,64,65,67,74,75,77],
-  "duplicates": {"51":32,"53":41,"61":22,"66":46,"71":63,"76":6,"67":47,"77":27},
+  "sparklePositions": [
+    3,
+    4,
+    5,
+    7,
+    13,
+    14,
+    15,
+    17,
+    24,
+    25,
+    27,
+    34,
+    35,
+    37,
+    44,
+    45,
+    47,
+    54,
+    55,
+    57,
+    64,
+    65,
+    67,
+    74,
+    75,
+    77
+  ],
+  "duplicates": {
+    "51": 32,
+    "53": 41,
+    "61": 22,
+    "66": 46,
+    "71": 63,
+    "76": 6,
+    "67": 47,
+    "77": 27
+  },
   "deduplicationBasis": "같은 타입 안에서 동일 캐릭터의 반복 배치를 시각 대조해 한 항목으로 합침. 손동작·미세한 배치 차이를 추가 종류로 세지 않음.",
-  "finishedDiameterMM":54,
-  "bleedPerSideMM":3,
-  "printDiameterMM":60
+  "finishedDiameterMM": 54,
+  "bleedPerSideMM": 3,
+  "printDiameterMM": 60,
+  "representativePositions": [
+    48,
+    7,
+    6
+  ]
 }
