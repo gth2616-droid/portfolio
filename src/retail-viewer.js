@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import foldStyles from './fold-demo.css?inline';
+import viewerTheme from './viewer-theme.css?inline';
 import {loadTexture,createPrintMaterial} from './print-material.js';
 const clamp=x=>Math.max(0,Math.min(1,x));
 const ease=x=>x*x*(3-2*x);
@@ -14,7 +15,7 @@ export function mountRetailViewer(host,variants,initialState={}){
  root.innerHTML=`<style>${foldStyles}
  :host{display:block;min-width:0;font-family:Arial,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;color:#292929}.model-name{font-size:17px;margin:0 0 9px;font-weight:600}.dimensions{font-size:11px;margin:0 0 18px;color:#555;line-height:1.8}.stage{height:470px;touch-action:pan-y}.stage canvas{display:block;width:100%;height:100%}.main-controls{padding:20px 0;flex-wrap:wrap}.scrubber{max-width:360px}.demo-notes{padding-bottom:0}.demo-notes p{margin:0}.viewer-bottom{min-height:55px}.render-error{padding:35px;font-size:12px;line-height:1.9}
  @media(max-width:700px){.stage{height:370px}.model-name{font-size:15px}.dimensions{font-size:10px}.detail-controls{display:block}.scrubber{max-width:none}.rotation-controls{margin-top:18px}.viewer-top{font-size:9px}.demo-notes{font-size:10px}}
- </style><div class="widget"><h4 class="model-name">${title}</h4><p class="dimensions">${variant.dimensionNote}</p>
+ ${viewerTheme}</style><div class="widget"><h4 class="model-name">${title}</h4><p class="dimensions">${variant.dimensionNote}</p>
  <section class="viewer" aria-label="${title} 입체 목업"><div class="viewer-top"><span id="view-state">01 / 평면 그래픽</span><span id="view-hint">자료를 불러오는 중</span></div><div class="stage" tabindex="0" role="group" aria-label="${title}. 입체 상태에서 드래그 회전, 휠 확대·축소가 가능합니다." data-state="loading"></div><div class="viewer-bottom"><span id="phase-text" aria-live="polite">자료를 불러오는 중</span><span id="progress-text">0%</span></div></section>
  <div class="main-controls"><button id="fold-toggle" class="primary" disabled>3D 목업으로 보기</button><button id="flat-reset" disabled>평면 그래픽으로 초기화</button></div>
  <div class="detail-controls"><div class="scrubber"><label for="${uid}">${pouch?'앞뒤 인쇄면 → 실링 파우치':'전면 그래픽 → 입체 진열 팩'}</label><input id="${uid}" class="fold-progress" type="range" min="0" max="100" step="1" value="0" disabled /></div><div class="rotation-controls" role="group" aria-label="패키지 시점"><button data-view="front" disabled>정면</button><button data-view="back" disabled>뒷면</button><button data-view="side" disabled>측면</button><button data-view="bottom" disabled>바닥</button><button data-view="reset" disabled>초기 시점</button></div></div>
@@ -47,7 +48,7 @@ export function mountRetailViewer(host,variants,initialState={}){
   surfaces.push({mesh,depth});return mesh;
  }
  function build(textures){
-  scene=new THREE.Scene();scene.background=new THREE.Color('#fafafa');scene.add(new THREE.HemisphereLight('#ffffff','#b7acb5',2));const light=new THREE.DirectionalLight('#ffffff',2.2);light.position.set(-120,200,300);scene.add(light);
+  scene=new THREE.Scene();scene.background=new THREE.Color('#fff9fc');scene.add(new THREE.HemisphereLight('#ffffff','#b7acb5',2));const light=new THREE.DirectionalLight('#ffffff',2.2);light.position.set(-120,200,300);scene.add(light);
   camera=new THREE.PerspectiveCamera(30,1,10,5000);rig=new THREE.Group();scene.add(rig);front=new THREE.Group();back=new THREE.Group();rig.add(front,back);
   const frontMat=printed(textures.front),backMat=textures.back?printed(textures.back):stockMaterial('#f6f1f3');
   for(const [group,mat] of [[front,frontMat],[back,backMat]]){

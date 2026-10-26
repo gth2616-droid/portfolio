@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import foldStyles from './fold-demo.css?inline';
+import viewerTheme from './viewer-theme.css?inline';
 import {loadTexture,createPrintMaterial} from './print-material.js';
 import {mountRetailViewer} from './retail-viewer.js';
 
@@ -14,7 +15,7 @@ export function mountPackageViewer(host,variants,initialState={}){
  root.innerHTML=`<style>${foldStyles}
  :host{display:block;min-width:0;font-family:Arial,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;color:#292929}.model-name{font-size:17px;margin:0 0 9px;font-weight:600}.dimensions{font-size:11px;margin:0 0 18px;color:#555}.stage{height:470px;touch-action:pan-y}.stage canvas{display:block;width:100%;height:100%}.main-controls{padding:20px 0;flex-wrap:wrap}.scrubber{max-width:360px}.demo-notes{padding-bottom:0}.demo-notes p{margin:0}.render-error{padding:35px;font-size:12px;line-height:1.9}.viewer-bottom{min-height:55px}
  @media(max-width:700px){.stage{height:370px}.model-name{font-size:15px}.dimensions{font-size:10px}.detail-controls{display:block}.scrubber{max-width:none}.rotation-controls{margin-top:18px}.viewer-top{font-size:9px}.demo-notes{font-size:10px}}
- </style><div class="widget"><h4 class="model-name">${title}</h4><p class="dimensions">${variant.dimensionNote||`${variant.dimensions.join(' × ')} mm · ${variant.group==='single'?'제공 사양 기준':'인수인계 규격 기록 기준'}`}</p>
+ ${viewerTheme}</style><div class="widget"><h4 class="model-name">${title}</h4><p class="dimensions">${variant.dimensionNote||`${variant.dimensions.join(' × ')} mm · ${variant.group==='single'?'제공 사양 기준':'인수인계 규격 기록 기준'}`}</p>
  <section class="viewer" aria-label="${title} 전개도 접힘 뷰어"><div class="viewer-top"><span id="view-state">01 / 평면 전개도</span><span id="view-hint">자료를 불러오는 중</span></div><div class="stage" tabindex="0" role="group" aria-label="${title}. 마우스 휠로 확대·축소하고, 접은 후 드래그 또는 방향키로 회전할 수 있습니다." data-state="loading"></div><div class="viewer-bottom"><span id="phase-text" aria-live="polite">자료를 불러오는 중</span><span id="progress-text">0%</span></div></section>
  <div class="main-controls"><button id="fold-toggle" class="primary" disabled>접어서 3D로 보기</button><button id="flat-reset" disabled>전개도로 초기화</button>${variant.shape==='display'?'<button id="display-toggle" disabled aria-pressed="false">진열형으로 보기</button>':''}</div>
  <div class="detail-controls"><div class="scrubber"><label for="fold-progress-${uid}">접힘 단계 직접 살펴보기</label><input id="fold-progress-${uid}" class="fold-progress" type="range" min="0" max="100" step="1" value="0" disabled aria-valuetext="평면 전개도, 0퍼센트"/></div><div class="rotation-controls" role="group" aria-label="완성된 패키지 시점"><button data-view="front" disabled>정면</button><button data-view="back" disabled>뒷면</button><button data-view="side" disabled>측면</button><button data-view="bottom" disabled>바닥</button><button data-view="reset" disabled>초기 시점</button></div></div>
@@ -49,7 +50,7 @@ export function mountPackageViewer(host,variants,initialState={}){
  }
  let textures={};
  function build(){
-  scene=new THREE.Scene();scene.background=new THREE.Color('#fafafa');camera=new THREE.PerspectiveCamera(30,1,10,5000);camera.position.z=1000;
+  scene=new THREE.Scene();scene.background=new THREE.Color('#fff9fc');camera=new THREE.PerspectiveCamera(30,1,10,5000);camera.position.z=1000;
   rig=new THREE.Group();scene.add(rig);model=new THREE.Group();model.position.set(-W/2,H/2,D/2);rig.add(model);
   const left=addPanel('left',model,D,H,-D,0);const back=addPanel('back',left,W,H,-W,0);back.position.x=-D;
   const glue=addPanel('glue',back,G,H,-G,0);glue.position.x=-W;

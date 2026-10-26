@@ -8,7 +8,7 @@ export function mountBadgeViewer(host,onSelect){
  const geometries=[],materials=[];let frontTexture,backTexture,placeholderTexture;
  function setup(){
   renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,powerPreference:'low-power'});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.toneMapping=THREE.NoToneMapping;renderer.outputColorSpace=THREE.SRGBColorSpace;stage.append(renderer.domElement);
-  scene=new THREE.Scene();scene.background=new THREE.Color('#f7f7f5');scene.add(new THREE.HemisphereLight('#ffffff','#d3cbd2',2));
+  scene=new THREE.Scene();scene.background=new THREE.Color('#fff9fc');scene.add(new THREE.HemisphereLight('#ffffff','#d3cbd2',2));
   const key=new THREE.DirectionalLight('#ffffff',2);key.position.set(-70,95,150);scene.add(key);const fill=new THREE.DirectionalLight('#ffffff',.7);fill.position.set(100,-40,80);scene.add(fill);
   camera=new THREE.OrthographicCamera(-64,64,32,-32,.1,1000);rig=new THREE.Group();scene.add(rig);
   placeholderTexture=new THREE.DataTexture(new Uint8Array([255,255,255,255]),1,1);placeholderTexture.colorSpace=THREE.SRGBColorSpace;placeholderTexture.needsUpdate=true;
