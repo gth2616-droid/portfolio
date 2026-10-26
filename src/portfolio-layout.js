@@ -1,4 +1,4 @@
-export function renderHeader(){return `<header class="header"><a class="site-name" href="#cover">전유빈<span>PRODUCT & PACKAGE DESIGNER</span></a><button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">메뉴 열기</button><nav id="main-nav" aria-label="섹션 이동"><a href="#overview">프로젝트</a><a href="#badges">배지 디자인</a><a href="#single">패키지</a><a href="#digital">디지털 콘텐츠</a><a href="#archive">작업 자료</a></nav></header>`;}
+export function renderHeader(){return `<header class="header"><a class="site-name" href="#cover">전유빈<span>PRODUCT & PACKAGE DESIGNER</span></a><button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">메뉴 열기</button><nav id="main-nav" aria-label="섹션 이동"><a href="#overview">프로젝트</a><a href="#badges">배지 디자인</a><a href="#single">패키지</a><a href="#experience">홍보·컨셉</a><a href="#digital">디지털 콘텐츠</a><a href="#archive">작업 자료</a></nav></header>`;}
 export function renderOpening(asset,photo){return `
 <section class="section cover" id="cover">
  <div class="cover-copy">
