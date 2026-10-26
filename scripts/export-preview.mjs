@@ -7,7 +7,7 @@ const result=await build({entryPoints:[path.join(root,'src/main.js')],bundle:tru
  name:'offline-assets',setup(build){
   build.onResolve({filter:/\.css\?inline$/},args=>({path:path.resolve(args.resolveDir,args.path.replace('?inline','')),namespace:'inline-css'}));
   build.onLoad({filter:/.*/,namespace:'inline-css'},async args=>({contents:'export default '+JSON.stringify(await fs.readFile(args.path,'utf8')),loader:'js'}));
-  build.onResolve({filter:/(?<!\?inline)\.css$/},()=>({path:'main-css',namespace:'empty-css'}));
+  build.onResolve({filter:/\.css$/},()=>({path:'main-css',namespace:'empty-css'}));
   build.onLoad({filter:/.*/,namespace:'empty-css'},()=>({contents:'',loader:'js'}));
   build.onLoad({filter:/(?:package|retail|content|vector|badge-texture)-data\.js$/},async args=>{let source=await fs.readFile(args.path,'utf8');const matches=[...source.matchAll(/new URL\('([^']+)',import.meta.url\)\.href/g)];for(const match of matches){const bytes=await fs.readFile(path.resolve(path.dirname(args.path),match[1]));source=source.replace(match[0],JSON.stringify('data:'+(path.extname(match[1])==='.gz'?'application/gzip':path.extname(match[1])==='.webp'?'image/webp':'image/png')+';base64,'+bytes.toString('base64')));}return {contents:source,loader:'js',resolveDir:path.dirname(args.path)};});
  }
