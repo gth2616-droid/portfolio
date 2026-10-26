@@ -1,5 +1,8 @@
 // Original PDF vector drawing operations and original embedded raster images.
 export const vectorDocuments = {
+"A041":{pages:[{url:new URL('./vector-assets/A041-1.svg.gz',import.meta.url).href,width:442.2049865722656,height:714.3309936523438}]},
+"A040":{pages:[{url:new URL('./vector-assets/A040-1.svg.gz',import.meta.url).href,width:442.2049865722656,height:714.3309936523438}]},
+"A039":{pages:[{url:new URL('./vector-assets/A039-1.svg.gz',import.meta.url).href,width:442.2049865722656,height:714.3309936523438}]},
 "B001":{pages:[{url:new URL('./vector-assets/B001-1.svg.gz',import.meta.url).href,width:1842.52001953125,height:1388.97998046875},{url:new URL('./vector-assets/B001-2.svg.gz',import.meta.url).href,width:1836.8499755859375,height:1383.31005859375}]},
 "A004":{pages:[{url:new URL('./vector-assets/A004-1.svg.gz',import.meta.url).href,width:841.8900146484375,height:595.2760009765625},{url:new URL('./vector-assets/A004-2.svg.gz',import.meta.url).href,width:841.8900146484375,height:595.2760009765625},{url:new URL('./vector-assets/A004-3.svg.gz',import.meta.url).href,width:841.8900146484375,height:595.2760009765625},{url:new URL('./vector-assets/A004-4.svg.gz',import.meta.url).href,width:841.8900146484375,height:595.2760009765625},{url:new URL('./vector-assets/A004-5.svg.gz',import.meta.url).href,width:841.8900146484375,height:595.2760009765625},{url:new URL('./vector-assets/A004-6.svg.gz',import.meta.url).href,width:841.8900146484375,height:595.2760009765625}]},
 "A001":{pages:[{url:new URL('./vector-assets/A001-1.svg.gz',import.meta.url).href,width:841.8900146484375,height:595.2760009765625}]},

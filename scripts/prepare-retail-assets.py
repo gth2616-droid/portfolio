@@ -34,3 +34,8 @@ for v in variants:
  meta={k:value for k,value in v.items() if k!='parts'}
  lines.append(json.dumps(meta,ensure_ascii=False)[:-1]+', "textures": {'+','.join(json.dumps(pid)+f":new URL('./package-assets/{v['id']}/{pid}.png',import.meta.url).href" for pid in v['parts'])+'}},')
 lines.append('];');(root/'src/retail-data.js').write_text('\n'.join(lines));print('Prepared',len(variants),'additional designs')
+
+# Reapply the latest PDF after legacy source-image preparation.
+if (root/'src/content-assets/다이소딱지.pdf').exists():
+ import subprocess,sys
+ subprocess.run([sys.executable,str(root/'scripts/prepare-daiso-pdf.py')],check=True)

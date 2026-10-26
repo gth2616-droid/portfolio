@@ -1,6 +1,6 @@
 {
-  "source_files": 89,
-  "archive_items": 89,
+  "source_files": 91,
+  "archive_items": 90,
   "all_source_ids": [
     "A001",
     "A002",
@@ -90,7 +90,8 @@
     "T001",
     "T002",
     "T003",
-    "T004"
+    "T004",
+    "T005"
   ],
   "mapping": [
     {
@@ -361,24 +362,24 @@
     },
     {
       "id": "A039",
-      "source": "지기구조/다이소딱지-01.png",
+      "source": "다이소딱지.pdf · 3페이지",
       "group": "packaging",
-      "kind": "image",
-      "title": "다이소 골드 타입"
+      "kind": "document",
+      "title": "다이소 골드 타입 · PDF 인쇄 원본"
     },
     {
       "id": "A040",
-      "source": "지기구조/다이소딱지-02.png",
+      "source": "다이소딱지.pdf · 2페이지",
       "group": "packaging",
-      "kind": "image",
-      "title": "다이소 샤이닝 타입"
+      "kind": "document",
+      "title": "다이소 샤이닝 타입 · PDF 인쇄 원본"
     },
     {
       "id": "A041",
-      "source": "지기구조/다이소딱지-03.png",
+      "source": "다이소딱지.pdf · 1페이지",
       "group": "packaging",
-      "kind": "image",
-      "title": "다이소 스파클 타입"
+      "kind": "document",
+      "title": "다이소 스파클 타입 · PDF 인쇄 원본"
     },
     {
       "id": "A042",
@@ -715,6 +716,16 @@
       "group": "product",
       "kind": "image",
       "title": "딱지 파우치 3종 대표 비주얼"
+    },
+    {
+      "id": "T005",
+      "source": "src/content-assets/다이소딱지.jpg",
+      "group": "product",
+      "kind": "image",
+      "title": "다이소 딱지 3종 대표 비주얼"
     }
+  ],
+  "additional_document_sources": [
+    "src/content-assets/다이소딱지.pdf"
   ]
 }

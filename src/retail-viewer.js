@@ -64,13 +64,14 @@ export function mountRetailViewer(host,variants,initialState={}){
   const invisible=new THREE.MeshBasicMaterial();invisible.visible=false;materials.push(invisible);edgeMesh=new THREE.Mesh(edgeGeometry,[invisible,stockMaterial(pouch?variant.stock:'#e2d5dc')]);rig.add(edgeMesh);
   if(!pouch){
    const texture=textures.front;
-   for(const y of [420,590])for(const x of [120,290,460]){
-    const r=80/585*W,centerX=(x/585-.5)*W,centerY=H/2-y/texture.image.height*H;
+   const relief=variant.badgeRelief||[420,590].flatMap(y=>[120,290,460].map(x=>({u:x/585,v:y/texture.image.height,r:80/585})));
+   for(const badge of relief){
+    const r=badge.r*W,centerX=(badge.u-.5)*W,centerY=H/2-badge.v*H;
     const disk=new THREE.CircleGeometry(r,64),pos=disk.getAttribute('position'),uv=[];
     for(let i=0;i<pos.count;i++)uv.push((pos.getX(i)+centerX)/W+.5,(pos.getY(i)+centerY)/H+.5);
     disk.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));geometries.push(disk);
     const coin=new THREE.Group(),face=new THREE.Mesh(disk,printed(texture));face.position.z=.85;coin.add(face);
-    const side=new THREE.CylinderGeometry(r,r,1.6,64,1,true);side.rotateX(Math.PI/2);geometries.push(side);coin.add(new THREE.Mesh(side,stockMaterial(variant.group==='daiso'?'#dac28d':variant.stock)));coin.position.set(centerX,centerY,0);front.add(coin);coins.push(coin);
+    const side=new THREE.CylinderGeometry(r,r,1.6,64,1,true);side.rotateX(Math.PI/2);geometries.push(side);coin.add(new THREE.Mesh(side,stockMaterial(variant.badgeRelief?'#dfdce1':variant.group==='daiso'?'#dac28d':variant.stock)));coin.position.set(centerX,centerY,0);front.add(coin);coins.push(coin);
    }
   }
  }
@@ -81,7 +82,7 @@ export function mountRetailViewer(host,variants,initialState={}){
   front.position.x=pouch?-W*.6*(1-t):0;back.position.x=pouch?W*.6*(1-t):0;back.rotation.y=Math.PI*t;back.visible=pouch||progress>.001;
   edgeMesh.scale.z=t;edgeMesh.visible=progress>.001;
   for(const coin of coins){coin.visible=progress>.001;coin.position.z=(D/2+.85)*t;coin.scale.z=t;}
-  materials.forEach(m=>{if(m.uniforms?.clean)m.uniforms.clean.value=t});
+  materials.forEach(m=>{if(m.uniforms?.clean)m.uniforms.clean.value=variant.cleanCutlines===false?0:t});
   rig.rotation.set(-rx*t*rad,ry*t*rad,0,'XYZ');
   const width=stage.clientWidth,height=stage.clientHeight,aspect=width/height,tan=Math.tan(camera.fov*rad/2);
   const flatDistance=Math.max(H/2/tan,W*(pouch?2.25:1.1)/2/tan/aspect)*1.16,foldedDistance=Math.hypot(W,H,D)/2/Math.sin(camera.fov*rad/2)*1.15;
@@ -97,7 +98,7 @@ export function mountRetailViewer(host,variants,initialState={}){
  async function initialize(){
   if(initializing||destroyed)return;initializing=true;
   try{renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,powerPreference:'low-power'});renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));stage.append(renderer.domElement);
-   const textures=Object.fromEntries(await Promise.all(Object.entries(variant.textures).map(async([id,url])=>[id,await loadTexture(url)])));if(destroyed)return;build(textures);ready=true;toggle.disabled=slider.disabled=$('#flat-reset').disabled=false;resize();
+   const textures=Object.fromEntries(await Promise.all(Object.entries(variant.textures).map(async([id,url])=>[id,await loadTexture(url)])));if(destroyed)return;if(variant.badgeRelief){for(const texture of Object.values(textures)){texture.generateMipmaps=true;texture.minFilter=THREE.LinearMipmapLinearFilter;texture.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());texture.needsUpdate=true;}}build(textures);ready=true;toggle.disabled=slider.disabled=$('#flat-reset').disabled=false;resize();
   }catch(error){host.dataset.state=stage.dataset.state='error';$('#phase-text').textContent='3D 표시 실패';stage.innerHTML='<p class="render-error">3D 화면을 표시할 수 없습니다. 최신 Chrome 또는 Safari에서 다시 열어주세요.</p>';console.error(error);}
  }
  function animate(target){if(!ready)return;stop();const from=progress;if(matchMedia('(prefers-reduced-motion: reduce)').matches){progress=target;render();return;}toggle.disabled=true;stage.setAttribute('aria-busy','true');const start=performance.now(),duration=Math.max(1,2000*Math.abs(target-from));const tick=now=>{const t=clamp((now-start)/duration);progress=from+(target-from)*t;render();if(t<1)animation=requestAnimationFrame(tick);else{stop();render();}};animation=requestAnimationFrame(tick);}

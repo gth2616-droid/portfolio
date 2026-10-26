@@ -61,3 +61,8 @@ for a in assets:
  lines.append(s+'},')
 lines+= ['];','export const badgeSamples = ['+','.join(url(n) for n in samples)+'];']
 (root/'src/content-data.js').write_text('\n'.join(lines));print('Prepared',len(assets),'source entries;',sum(p.stat().st_size for p in out.glob('*.webp'))//1024,'KiB optimized artwork')
+
+# Reapply the latest PDF after legacy source-image preparation.
+if (root/'src/content-assets/다이소딱지.pdf').exists():
+ import subprocess,sys
+ subprocess.run([sys.executable,str(root/'scripts/prepare-daiso-pdf.py')],check=True)
