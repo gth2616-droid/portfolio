@@ -12,7 +12,7 @@ const result=await build({entryPoints:[path.join(root,'src/main.js')],bundle:tru
   build.onLoad({filter:/(?:package|retail|content|vector|badge-texture)-data\.js$/},async args=>{let source=await fs.readFile(args.path,'utf8');const matches=[...source.matchAll(/new URL\('([^']+)',import.meta.url\)\.href/g)];for(const match of matches){const bytes=await fs.readFile(path.resolve(path.dirname(args.path),match[1]));source=source.replace(match[0],JSON.stringify('data:'+(path.extname(match[1])==='.gz'?'application/gzip':path.extname(match[1])==='.webp'?'image/webp':'image/png')+';base64,'+bytes.toString('base64')));}return {contents:source,loader:'js',resolveDir:path.dirname(args.path)};});
  }
 }]});
-const cssFiles=['style.css','vendor/nimbus/styles.css','nimbus-adapter.css'];
+const cssFiles=['style.css','portfolio.css'];
 let css=(await Promise.all(cssFiles.map(name=>fs.readFile(path.join(root,'src',name),'utf8')))).join('\n');
 for(const match of [...css.matchAll(/url\('([^']+\.woff2)'\)/g)]){const bytes=await fs.readFile(path.join(root,'src',match[1]));css=css.replace(match[0],`url(data:font/woff2;base64,${bytes.toString('base64')})`);}
 let html=await fs.readFile(path.join(root,'index.html'),'utf8');html=html.replace('</head>',`<style>${css}</style></head>`).replace('<script type="module" src="/src/main.js"></script>',()=>'<script>'+result.outputFiles[0].text.replaceAll('</script','<\\/script')+'</script>');
