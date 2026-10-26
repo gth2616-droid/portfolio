@@ -46,7 +46,11 @@ samples=[]
 # Representative finished circles, not a fabricated list of 72 unique items.
 for i,(x,y) in enumerate([(109,73),(434,73),(652,73),(869,73),(976,73),(1085,73)]):
  name,_=save(front.crop((x-55,y-55,x+55,y+55)),f'badge-sample-{i+1}',(220,220),90);samples.append(name)
-coverage={'source_files':len(rows)+1,'archive_items':len(assets),'all_source_ids':[a['id'] for a in assets],'mapping':[{k:a[k] for k in ['id','source','group','kind','title']} for a in assets]}
+
+# User-provided final thumbnails are preserved as original sRGB JPEG files.
+additional=[{'id': 'T001', 'title': '하츄핑 디스플레이 박스 대표 비주얼', 'group': 'product', 'source': 'src/content-assets/파우치거치박스_하츄핑.jpg', 'credit': '', 'kind': 'image', 'width': 1000, 'height': 1000, 'file': '파우치거치박스_하츄핑.jpg', 'pages': []}, {'id': 'T002', 'title': '다이아나핑 디스플레이 박스 대표 비주얼', 'group': 'product', 'source': 'src/content-assets/파우치거치박스_다이아나핑.jpg', 'credit': '', 'kind': 'image', 'width': 1000, 'height': 1000, 'file': '파우치거치박스_다이아나핑.jpg', 'pages': []}, {'id': 'T003', 'title': '이클립스핑 디스플레이 박스 대표 비주얼', 'group': 'product', 'source': 'src/content-assets/파우치거치박스_이클립스핑.jpg', 'credit': '', 'kind': 'image', 'width': 1000, 'height': 1000, 'file': '파우치거치박스_이클립스핑.jpg', 'pages': []}, {'id': 'T004', 'title': '딱지 파우치 3종 대표 비주얼', 'group': 'product', 'source': 'src/content-assets/레이어 0.jpg', 'credit': '', 'kind': 'image', 'width': 1000, 'height': 1000, 'file': '레이어 0.jpg', 'pages': []}]
+assets.extend(additional)
+coverage={'source_files':len(rows)+1+len(additional),'archive_items':len(assets),'all_source_ids':[a['id'] for a in assets],'mapping':[{k:a[k] for k in ['id','source','group','kind','title']} for a in assets]}
 (root/'docs/portfolio-asset-coverage.json').write_text(json.dumps(coverage,ensure_ascii=False,indent=2))
 def url(name):return "new URL('./content-assets/"+name+"',import.meta.url).href"
 lines=['// Optimized presentation copies. Full provenance: docs/portfolio-asset-coverage.json.','export const contentAssets = [']

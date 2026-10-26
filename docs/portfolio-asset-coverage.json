@@ -1,6 +1,6 @@
 {
-  "source_files": 85,
-  "archive_items": 85,
+  "source_files": 89,
+  "archive_items": 89,
   "all_source_ids": [
     "A001",
     "A002",
@@ -86,7 +86,11 @@
     "A082",
     "A083",
     "A084",
-    "B001"
+    "B001",
+    "T001",
+    "T002",
+    "T003",
+    "T004"
   ],
   "mapping": [
     {
@@ -683,6 +687,34 @@
       "group": "badge",
       "kind": "document",
       "title": "배지 제작 시트 · 앞면과 공통 뒷면"
+    },
+    {
+      "id": "T001",
+      "source": "src/content-assets/파우치거치박스_하츄핑.jpg",
+      "group": "product",
+      "kind": "image",
+      "title": "하츄핑 디스플레이 박스 대표 비주얼"
+    },
+    {
+      "id": "T002",
+      "source": "src/content-assets/파우치거치박스_다이아나핑.jpg",
+      "group": "product",
+      "kind": "image",
+      "title": "다이아나핑 디스플레이 박스 대표 비주얼"
+    },
+    {
+      "id": "T003",
+      "source": "src/content-assets/파우치거치박스_이클립스핑.jpg",
+      "group": "product",
+      "kind": "image",
+      "title": "이클립스핑 디스플레이 박스 대표 비주얼"
+    },
+    {
+      "id": "T004",
+      "source": "src/content-assets/레이어 0.jpg",
+      "group": "product",
+      "kind": "image",
+      "title": "딱지 파우치 3종 대표 비주얼"
     }
   ]
 }
