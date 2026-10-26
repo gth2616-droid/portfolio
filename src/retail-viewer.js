@@ -48,7 +48,7 @@ export function mountRetailViewer(host,variants,initialState={}){
   surfaces.push({mesh,depth});return mesh;
  }
  function build(textures){
-  scene=new THREE.Scene();scene.background=new THREE.Color('#fff9fc');scene.add(new THREE.HemisphereLight('#ffffff','#b7acb5',2));const light=new THREE.DirectionalLight('#ffffff',2.2);light.position.set(-120,200,300);scene.add(light);
+  scene=new THREE.Scene();scene.background=new THREE.Color('#f7f7f5');scene.add(new THREE.HemisphereLight('#ffffff','#b7acb5',2));const light=new THREE.DirectionalLight('#ffffff',2.2);light.position.set(-120,200,300);scene.add(light);
   camera=new THREE.PerspectiveCamera(30,1,10,5000);rig=new THREE.Group();scene.add(rig);front=new THREE.Group();back=new THREE.Group();rig.add(front,back);
   const frontMat=printed(textures.front),backMat=textures.back?printed(textures.back):stockMaterial('#f6f1f3');
   for(const [group,mat] of [[front,frontMat],[back,backMat]]){

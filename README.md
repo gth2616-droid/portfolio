@@ -128,14 +128,17 @@ npm run deploy
 
 `.validation/check-badge-fast-open.py`에서 고해상도 응답을 보류한 상태의 첫 표시를 검사했습니다. PC/모바일 모두 같은 클릭 처리 안에서 모델이 표시됐고, 테스트 환경에서는 약62~74ms였습니다. 배지를 여는 동안 전체SVG 다운로드가 없고, 이미지 응답 재개 후 고해상도로 바뀌며 렌더러가 재사용되는 것을 확인했습니다. 기존72종/타입별24종, 색상·재단·앞뒤 조작 검사도 다시 통과했습니다.
 
-## 비주얼 디자인 · MotionSites 레퍼런스
+## MotionSites 원본 코드 적용 · Nimbus Grid
 
-[Duolingo Styleguide](https://motionsites.ai/?prompt=duolingo-styleguide-hero)의 공개 프리뷰에서 제품 중심의 표지 구성, 둥근 카드, 아래 테두리가 두꺼운 버튼과 가벼운 인터랙션을 참고했습니다. 코드는 직접 작성했으며 티니핑 원본 제품 그래픽과 핑크·라벤더 팔레트로 구성했습니다.
+[MotionSites Nimbus Grid](https://motionsites.ai/?prompt=nimbus-grid)가 다운로드로 연결한 [GitHub 원본](https://github.com/vikod3/cloud_storage_ai_website)의 commit `6c8cb787ed4c093f2176d45e8737dcf3c45fc7d8`을 사용합니다. 이전 Duolingo 스타일 재해석은 제거했습니다. Duolingo 항목의 공개 자료는 완성 코드가 아닌 생성 프롬프트입니다.
 
-- `src/theme.css`: 표지 제품 콜라주, 담당 범위 카드, 타입별 컬렉션, 휴대폰 목업, 자료 창을 포함한 전체 시각 스타일.
-- `src/viewer-theme.css`: 박스·진열 팩·파우치 뷰어의 공통 UI. 컨테이너 너비에 맞춰 조작부를 재배치합니다.
-- PC에서는 패키지 설명과 3D 뷰어를 나란히, 모바일에서는 세로로 배치합니다. 기존 접힘 구조, 재단 좌표, 원본 인쇄 색상과 빠른 배지 열기는 유지합니다.
-- 로컬 Pretendard Variable을 사용하며 SIL Open Font License는 `src/fonts/OFL.txt`에 포함했습니다. 글꼴을 외부 서비스에서 요청하지 않습니다.
-- 스크롤 등장 효과와 장식 모션은 `prefers-reduced-motion` 설정을 따릅니다. AI 연출 이미지의 생성·후보정 표기를 유지합니다.
+- `src/vendor/nimbus/original.html`, `original.js`, `styles.css`: 수정하지 않은 원본 스냅샷. 출처·변경 범위는 같은 폴더의 `PROVENANCE.md`에 기록했습니다.
+- `src/nimbus-layout.js`: 원본 헤더·히어로·콘솔 탭·스크롤 카드의 HTML에 포트폴리오 문구와 제품 자료를 연결합니다.
+- `src/vendor/nimbus/runtime.js`: 원본 스크립트를 DOM 생성 후 실행하도록 감싸고, 키보드 탭 조작과 모션 감소 설정을 적용했습니다.
+- `src/nimbus-adapter.css`: 기존 작업 자료, 한국어 서체와 3D 뷰어의 연결 스타일입니다. IBM Plex Sans / IBM Plex Sans KR / IBM Plex Mono를 로컬로 제공합니다. 라이선스는 `src/fonts/IBM-Plex-OFL.txt`입니다.
+- 원본 히어로의 외부 셰이더 임베드를 유지합니다. 외부 서비스가 로드되지 않으면 원본 CSS 그라디언트가 보이며, 모션 감소 설정에서는 임베드를 로드하지 않습니다.
+- 원본의 네 장 스크롤 카드는 담당 범위 소개에 사용합니다. 모바일과 모션 감소 설정에서는 버튼으로 전환해 불필요한 스크롤을 줄였습니다.
 
-검증: 320·375·768·1024·1440px에서 가로 넘침과 브라우저 오류 확인, PC·모바일의 15개 패키지 디자인 전환·접기·회전·휠 확대, 진열형 전환, 휴대폰 내부 스크롤, SNS 카드·이미지 창·자료 검색, 배지 72종 분류와 3mm 재단·색상 및 지연 응답 중 즉시 열기를 확인했습니다.
+기존 배지 72종·타입별 24종, 앞뒤 원본 색상·3mm 재단, 빠른 3D 열기, 6개 패키지 유형·15개 디자인 전환과 접힘 구조를 보존합니다. AI 이미지의 ChatGPT 생성·Photoshop 후보정 및 공식 IP·선행 기획 크레딧도 유지합니다.
+
+검증: 원본 스냅샷 3개 파일의 바이트 일치, 원본 히어로 탭·키보드 조작, PC 스크롤 카드와 모바일·모션 감소 전환을 확인했습니다. 320·375·768·1024·1440px의 가로 넘침·브라우저 오류, PC·모바일 패키지 15개 디자인의 접힘·회전·확대·전환, 배지 분류·재단·원본 색상과 지연 응답 중 빠른 열기도 통과했습니다.

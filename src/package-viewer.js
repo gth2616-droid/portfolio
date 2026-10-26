@@ -50,7 +50,7 @@ export function mountPackageViewer(host,variants,initialState={}){
  }
  let textures={};
  function build(){
-  scene=new THREE.Scene();scene.background=new THREE.Color('#fff9fc');camera=new THREE.PerspectiveCamera(30,1,10,5000);camera.position.z=1000;
+  scene=new THREE.Scene();scene.background=new THREE.Color('#f7f7f5');camera=new THREE.PerspectiveCamera(30,1,10,5000);camera.position.z=1000;
   rig=new THREE.Group();scene.add(rig);model=new THREE.Group();model.position.set(-W/2,H/2,D/2);rig.add(model);
   const left=addPanel('left',model,D,H,-D,0);const back=addPanel('back',left,W,H,-W,0);back.position.x=-D;
   const glue=addPanel('glue',back,G,H,-G,0);glue.position.x=-W;
