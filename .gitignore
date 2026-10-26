@@ -1,3 +1,5 @@
 node_modules/
 dist/
 .validation/
+__pycache__/
+*.py[cod]

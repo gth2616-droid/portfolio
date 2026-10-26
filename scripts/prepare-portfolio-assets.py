@@ -1,6 +1,7 @@
 """Create optimized presentation copies and a complete source-to-section ledger."""
 from pathlib import Path
-from PIL import Image,ImageOps
+from PIL import Image,ImageOps,ImageCms
+import io
 import json
 root=Path(__file__).resolve().parents[1];materials=Path('/workspace/teenieping-materials');sources=materials/'extracted';out=root/'src/content-assets';out.mkdir(parents=True,exist_ok=True)
 rows=json.loads((materials/'reports/inventory.json').read_text());assets=[]
@@ -13,7 +14,11 @@ titles={
 'A039':'다이소 골드 타입','A040':'다이소 샤이닝 타입','A041':'다이소 스파클 타입','A042':'하츄핑 파우치 앞뒤','A043':'다이아나핑 파우치 앞뒤','A044':'이클립스핑 파우치 앞뒤','A045':'하츄핑 디스플레이 전개도','A046':'다이아나핑 디스플레이 전개도','A047':'이클립스핑 디스플레이 전개도','A048':'리미티드 1+1 이벤트','A049':'다이아나핑 리미티드 전개도','A050':'이클립스핑 리미티드 전개도','A051':'하츄핑 싱글팩 전개도','A052':'다이아나핑 싱글팩 전개도','A053':'이클립스핑 싱글팩 전개도','A054':'물류용 카톤박스 인쇄 그래픽','A055':'크리스탈 케이스 보호 파우치','A056':'풀박스 전개도',
 'A057':'블루 케이스 · 보관 연출','A058':'다이아나핑 · 제품 구성 연출','A059':'핑크 케이스 · 침실 연출','A060':'블루 케이스 · 생활 공간 연출','A061':'핑크 케이스 · 선반 전시','A062':'자석 배지 · 보드 활용','A063':'핑크 케이스 · 전시 연출','A064':'퍼플 케이스 · 배지 넣기','A065':'블루 케이스 · 배지 넣기','A066':'다이아나핑 · 탁상 구성','A067':'퍼플 케이스 · 사용 연출','A068':'핑크 케이스 · 탁상 구성','A069':'핑크 케이스 · 보관 연출 01','A070':'핑크 케이스 · 보관 연출 02','A071':'아이 놀이 콘셉트 01','A072':'아이 놀이 콘셉트 02','A073':'아이 놀이 콘셉트 03','A074':'아이 놀이 콘셉트 04','A075':'아이 놀이 콘셉트 05','A076':'이클립스핑 · 후기 콘셉트','A077':'다이아나핑 · 후기 콘셉트','A078':'블루 크리스탈 케이스','A079':'핑크 크리스탈 케이스','A080':'퍼플 크리스탈 케이스','A081':'제공 제품 사양','A082':'풀박스 제품 이미지','A083':'풀박스 구성','A084':'풀박스 대표 비주얼'}
 def save(im,key,max_size=(1300,1300),quality=82):
- im=ImageOps.exif_transpose(im);im.thumbnail(max_size,Image.Resampling.LANCZOS)
+ im=ImageOps.exif_transpose(im)
+ profile=im.info.get('icc_profile')
+ if profile and im.mode in ['RGB','CMYK','LAB']:
+  im=ImageCms.profileToProfile(im,ImageCms.ImageCmsProfile(io.BytesIO(profile)),ImageCms.createProfile('sRGB'),renderingIntent=1,outputMode='RGB')
+ im.thumbnail(max_size,Image.Resampling.LANCZOS)
  if im.mode not in ['RGB','RGBA']:im=im.convert('RGBA' if 'transparency' in im.info else 'RGB')
  name=key+'.webp';im.save(out/name,'WEBP',quality=quality,method=6);return name,im.size
 for row in rows:
@@ -23,8 +28,9 @@ for row in rows:
  if aid in ['A054','A055','A081']:group='production'
  a=dict(id=aid,title=titles[aid],group=group,source=row['path'],credit=credit,kind='image',pages=[])
  if row['extension'] in ['.jpg','.png']:
-  im=Image.open(sources/row['path']);size=(780,15000) if aid=='A029' else (1300,1300)
-  name,wh=save(im,aid,size,86 if aid=='A029' else 82);a.update(file=name,width=wh[0],height=wh[1])
+  im=Image.open(sources/row['path']);size=im.size if aid=='A038' else (780,15000) if aid=='A029' else (1300,1300)
+  name,wh=save(im,aid,size,96 if aid=='A038' else 86 if aid=='A029' else 82);a.update(file=name,width=wh[0],height=wh[1])
+  if aid=='A038':a['previewFile']=save(Image.open(sources/row['path']),aid+'-preview',(1600,1600),94)[0]
   if aid=='A029':a['previewFile']=save(Image.open(sources/row['path']).crop((0,0,1708,2000)),aid+'-preview',(500,650))[0]
  elif aid=='A001':
   a.update(file=save(Image.open(materials/'reports/copyright-ai-preview.png'),aid)[0],kind='document')
