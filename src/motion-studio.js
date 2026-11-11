@@ -1,6 +1,6 @@
 const titles = {
   cover: ['01', 'Selected work'], overview: ['01', 'The project'], badges: ['02', 'Badge collection'],
-  single: ['03', 'Single pack'], full: ['04', 'Full box'], limited: ['05', 'Limited edition'],
+  'badge-collection': ['02', 'The collection'], 'social-screen': ['10', 'Instagram'], 'poster-screen': ['10', 'Poster & promotion'], single: ['03', 'Single pack'], full: ['04', 'Full box'], limited: ['05', 'Limited edition'],
   daiso: ['06', 'Retail edition'], display: ['07', 'Display box'], pouch: ['08', 'Badge pouch'],
   experience: ['09', 'Visual stories'], digital: ['10', 'Digital experience'], about: ['11', 'Behind the work']
 };

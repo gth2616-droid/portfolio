@@ -67,3 +67,30 @@ Additional validation covers work-first mobile ordering, opposite package spread
 aligned phone frames, thumbnail expansion and the existing chapter curtain after
 layout changes. The same five locally hosted type families and motion preference
 handling are retained.
+
+## Viewport-sized presentation
+
+The presentation now spans the full browser width, with screen-height minimums
+based on the visible viewport minus the 72px header. Desktop compositions adapt
+to both 1366×768 laptops and 1920×1080 displays. Panels grow naturally for expanded
+content, additional images or user text sizing; there is no fixed-height clipping.
+
+The representative badges and the filterable collection are separate sections.
+Commerce, Instagram and posters each form a screen-sized composition. A 15-stop
+navigation rail exposes named native anchors and the current location. Fine-pointer
+desktop browsers use proximity scroll snapping; normal wheel/touch behavior is
+preserved and reduced motion disables snapping and transitions. Narrow/short
+screens retain the natural document flow and hide the navigation rail.
+
+Package models retain their rendering and geometry logic. Their stage heights
+follow the viewport; fold/reset/display controls stay visible, while additional
+rotation, progress and original production notes are grouped in native details.
+Phone frame scaling accounts for both width and desktop viewport height. A screen
+resize updates the frames and product stages without changing their interaction.
+
+Validation includes seven width/height combinations from 320×667 to 1920×1080,
+all 15 package variants on desktop/mobile, commerce options at five widths, rail
+and curtain destination alignment, natural wheel scrolling, independent 3D wheel
+zoom, advanced controls, gallery/badge controls and changing motion preferences
+mid-transition. No horizontal overflow, browser errors or failed resources were
+observed in the responsive checks.
