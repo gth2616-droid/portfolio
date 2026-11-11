@@ -1,32 +1,49 @@
-# Portfolio art direction — November 2026
+# Motion & type portfolio — November 2026
 
-A high-contrast editorial portfolio: large typographic hierarchy, actual product
-photography, short first-pass facts, a compact package index and restrained motion.
-White / cool grey / ink surfaces with cobalt for navigation and interactive controls.
-Original product colors and all image-generation disclosures remain unchanged.
+The portfolio uses a warm ivory / rose / burgundy palette and an expressive
+English/Korean typographic system. Actual product graphics retain their original
+colors, proportions and all AI generation disclosures.
 
-References consulted on 2026-11-11:
-- https://webflow.com/blog/web-design-trends-2026 — minimal copy, TL;DR experiences,
-  dynamic typography and color.
-- https://www.wix.com/blog/web-design-trends — exaggerated hierarchy and elevated
-  brutalism; translated here into a structured, readable presentation.
-- https://www.awwwards.com/websites/portfolio/ — current portfolio reference index.
+## Typography
+
+- Syne: geometric English display, collection names and large statistics.
+- Bodoni Moda italic: contrasting editorial English headlines and wordmark.
+- Space Grotesk: English captions, labels and chapter numbers.
+- IBM Plex Sans KR: readable Korean body copy and interface controls.
+- Portfolio Serif (Noto Serif KR subset): Korean editorial subheads.
+
+Three new Latin variable WOFF2 fonts total about 87 KiB, served locally with
+font-display: swap. Original OFL licenses are bundled in src/fonts. There are no
+third-party font requests when viewing the site.
+
+## Motion
+
+- Staggered, clipped hero title entrances, with the product image entering next.
+- One-time scroll entrances for section titles, content and gallery images.
+- Distant in-page navigation uses a burgundy chapter curtain (320ms in, 100ms
+  hold, 400ms out), then reveals the destination. It uses the same anchors and
+  does not intercept ordinary scrolling, modified clicks or the skip link.
+- The typography ribbon moves a small amount with scrolling; no perpetual loop.
+- Product switches, badge filters, SNS changes and asset dialogs receive short
+  transition animations. Product renderer geometry and controls are unchanged.
+- The curtain never captures pointer input or keyboard focus. Reduced motion
+  skips animation and follows native anchors. Changing the preference during a
+  transition cancels motion and completes the requested navigation.
+- Content is visible by default; no reveal CSS leaves unseen sections hidden.
+
+## References
+
+- https://webflow.com/blog/web-design-trends-2026 — dynamic type, minimal copy.
+- https://www.wix.com/blog/web-design-trends — exaggerated hierarchy, tactile art.
+- https://www.awwwards.com/websites/portfolio/ — portfolio reference index.
 
 These references informed the direction; no third-party template code was copied.
-Local IBM Plex Sans / Sans KR / Mono fonts are retained under their existing OFL.
 
-Native scrolling and keyboard navigation remain intact. Motion respects
-prefers-reduced-motion. Reading progress and current-section navigation are
-progressive enhancements; they never conceal content. Product renderers, models,
-vector sources, original imagery and prices are unchanged.
+## Validation
 
-Validation:
-- Production build and JavaScript syntax checks.
-- Chromium responsive checks at 320, 375, 390, 768, 1024 and 1440px; no horizontal
-  overflow, page errors or failed resources.
-- All 15 package variants fold/reset on desktop and mobile; carton keyboard views.
-- Commerce price/options/quantity/cart/detail scrolling at five viewport widths.
-- Gallery expansion, asset dialog, badge filters, mobile menu and SNS carousel.
-- Current-section navigation, package anchors, keyboard focus and reduced motion.
-- Explicit source aspect ratios reserve lazy gallery/poster image space so that
-  navigating directly to the profile does not shift its destination after loading.
+Chromium checks cover 320, 375, 390, 768, 1024 and 1440px layouts, image expansion,
+gallery controls, mobile navigation, badge filters, preserved content and failed
+resource detection. Additional desktop/mobile checks exercise mouse and keyboard
+curtain navigation, scroll entrances, distinct font roles, changing reduced-motion
+preferences mid-transition, and product viewer interactions. Source aspect ratios
+reserve gallery/poster image space before lazy loading to preserve anchor positions.

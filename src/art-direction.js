@@ -21,6 +21,7 @@ export function mountArtDirection() {
     }
     if (progress >= .999) current = '#about';
     header.style.setProperty('--reading-progress', String(progress));
+    document.querySelector('.type-ribbon-track')?.style.setProperty('--ribbon-offset', `${-Math.min(200, scrollY * .12)}px`);
     if (current !== previous) {
       links.forEach(link => {
         if (link.getAttribute('href') === current) link.setAttribute('aria-current', 'location');
