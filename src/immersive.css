@@ -1,0 +1,47 @@
+/* One gesture advances one chapter; JS owns the section transition. */
+html[data-section-scroll]{scroll-snap-type:none!important;scroll-behavior:auto!important}.section-divider[id],footer[id]{scroll-margin-top:var(--site-header)}
+/* Photographic opening: edge-to-edge imagery and a large editorial title. */
+#cover.immersive-cover{position:relative;display:block;isolation:isolate;overflow:clip;padding:0;min-height:var(--screen-height);background:#f5f0e9;grid-template-columns:none;grid-template-rows:none}
+#cover .hero-scene{position:absolute;inset:0 0 0 auto;width:58%;height:100%;margin:0;z-index:0;animation:none!important}
+#cover .hero-scene .work-image,#cover .hero-scene .image-button{position:absolute;inset:0;width:100%;height:100%;max-height:none;background:#f5f0e9;border:0;border-radius:0;overflow:hidden}
+#cover .hero-scene .image-button img{width:100%;height:100%;max-height:none;aspect-ratio:auto;object-fit:cover;object-position:50% 50%;transform:none}
+#cover .hero-scene:after{content:'';position:absolute;inset:0 auto 0 0;width:65px;background:linear-gradient(90deg,#f5f0e9,transparent);pointer-events:none}
+#cover .hero-scene .image-expand{right:35px;bottom:30px;background:#fff8ef;border:0;width:42px;height:42px}
+.hero-image-label{position:absolute;right:95px;bottom:41px;font:10px/1.8 var(--english);letter-spacing:1px;color:#42353d;pointer-events:none;background:#f5f0e9d9;padding:3px 8px}
+.hero-editorial{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:space-between;width:46%;min-height:var(--screen-height);padding:clamp(28px,4svh,65px) 0 25px var(--gutter);gap:24px;pointer-events:none}
+.hero-editorial a{pointer-events:auto}.hero-meta .eyebrow{font:500 10px/1.8 var(--english);letter-spacing:1.5px;margin:0 0 8px}.hero-meta .project-license{font-size:10px;margin:0;color:#62534f}
+.hero-series{font:500 clamp(22px,2.6vw,45px)/1.2 var(--display);letter-spacing:-1px;color:#342b2f;margin-bottom:14px}
+#cover .hero-title h1{display:block;font:600 clamp(82px,9vw,170px)/1 var(--display);letter-spacing:-5px;overflow:visible}
+#cover .hero-title h1>.hero-line{display:block;margin:0;padding:0 12px .12em 0;overflow:clip;height:auto}
+#cover .hero-title h1>.hero-italic{font:italic 500 1.08em/1.03 var(--editorial);letter-spacing:-6px;margin:0 0 -.02em -4px;padding-right:.18em;padding-bottom:.18em}
+#cover .hero-title h1>.hero-last{font:600 1em/1.08 var(--display);letter-spacing:-6px;margin:0}
+#cover .hero-title .project-english{font:500 17px/1.7 var(--serif);letter-spacing:-.4px;margin-top:13px;color:#47383f}
+#cover .hero-intro{max-width:420px}#cover .cover-subtitle{font-size:14px;line-height:1.95;margin:0;color:#50454a}#cover .cover-credit{border:0;padding:0;margin-top:18px;gap:14px}#cover .cover-credit>span{font-size:9px}#cover .cover-credit p{font-size:13px}#cover .cover-credit small{font-size:10px}#cover .cover-actions{margin-top:22px;gap:20px;flex-wrap:wrap;flex-direction:row;align-items:center}#cover .project-link{font:500 12px/1.7 var(--english);letter-spacing:.2px;padding:14px 20px}#cover .quiet-link{font-size:11px}
+.hero-scroll-cue{display:flex;align-items:center;gap:22px;width:max-content;color:#62534f}.hero-scroll-cue>span:first-child{font:10px/1.8 var(--english);letter-spacing:1.3px}.hero-scroll-cue>span:last-child{font-size:23px}
+/* The grid is a photographic wall: no internal letterboxing in any tile. */
+.concept-gallery-item .image-button{background:transparent!important}.concept-gallery-item .image-button img{object-fit:cover!important;object-position:50% 50%;width:100%;height:100%;aspect-ratio:auto!important}.concept-image-grid{gap:10px}.concept-gallery-item .image-expand{right:10px;bottom:10px;background:#fffffff2}
+@media(min-width:1024px) and (min-height:700px){
+ #cover.immersive-cover{height:var(--screen-height);min-height:var(--screen-height)}
+ #cover .hero-editorial{height:100%;min-height:0}
+ #cover .hero-title h1{font-size:clamp(85px,10.8svh,176px)}
+ .footer{min-height:var(--screen-height);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:45px;padding:55px var(--gutter)}.footer>a:first-child{font:600 clamp(85px,12vw,220px)/1.05 var(--display);letter-spacing:-7px}.footer>p{font-size:13px;line-height:2}.footer>a:last-child{font-size:15px;border-bottom:1px solid #b599aa;padding-bottom:8px}
+}
+@media(min-width:1024px) and (min-height:700px) and (max-height:819px){.hero-editorial{padding-top:25px;padding-bottom:17px;gap:15px}.hero-series{font-size:25px;margin-bottom:9px}#cover .hero-title .project-english{font-size:15px;margin-top:6px}#cover .cover-subtitle{font-size:13px}#cover .cover-credit{margin-top:13px}#cover .cover-actions{margin-top:16px}.hero-scroll-cue>span:first-child{font-size:9px}.hero-scroll-cue>span:last-child{font-size:20px}}
+@media(max-width:1023px),(max-height:699px){
+ #cover.immersive-cover{display:flex;flex-direction:column;min-height:0}
+ #cover .hero-scene{position:relative;inset:auto;width:100%;height:56svh;min-height:320px;max-height:650px;order:0}
+ #cover .hero-scene:after{display:none}#cover .hero-scene .image-button img{object-position:center 60%}.hero-image-label{right:72px;bottom:24px;font-size:8px}#cover .hero-scene .image-expand{right:20px;bottom:20px;width:34px;height:34px}
+ .hero-editorial{width:100%;min-height:0;height:auto;padding:28px var(--gutter) 25px;gap:23px;pointer-events:auto}
+ .hero-meta{display:flex;justify-content:space-between;gap:20px;align-items:baseline}.hero-meta .eyebrow{font-size:8px;letter-spacing:1px;margin:0}.hero-meta .project-license{font-size:9px;text-align:right}
+ .hero-series{font-size:24px;margin-bottom:9px}#cover .hero-title h1{font-size:clamp(40px,10vw,90px);display:flex;gap:18px;align-items:baseline}#cover .hero-title h1>.hero-italic{font-size:1.12em;letter-spacing:-2px;margin:0;padding-right:.1em;padding-bottom:.15em}#cover .hero-title h1>.hero-last{font-size:1em;letter-spacing:-2px;line-height:1.1;padding-right:0}#cover .hero-title .project-english{font-size:17px;margin-top:8px}
+ #cover .hero-intro{max-width:none}#cover .cover-subtitle{font-size:13px}#cover .cover-credit{margin-top:17px}#cover .cover-actions{margin-top:20px;gap:20px}#cover .project-link{font-size:11px;padding:13px 17px}.hero-scroll-cue{display:none}.concept-image-grid{gap:8px}
+}
+@media(max-width:360px){.hero-meta{display:block}.hero-meta .project-license{text-align:left;margin-top:7px}.hero-editorial{gap:20px}#cover .hero-title h1{font-size:35px;gap:10px}.hero-series{font-size:22px}#cover .cover-actions{gap:13px}#cover .quiet-link{font-size:10px}#cover .cover-credit small{display:block;margin:4px 0 0}}
+/* Four tall photographs make a full-bleed opening spread without strip-shaped crops. */
+.concept-image-grid{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:clamp(300px,calc(100svh - 450px),760px);gap:8px}
+.concept-image-grid>.concept-gallery-item,.concept-image-grid>.concept-gallery-item:first-child,.concept-image-grid>.concept-gallery-item:nth-child(n+6):nth-child(-n+8){grid-column:auto;grid-row:auto}
+.concept-gallery-item[data-concept-extra]{grid-column:auto;grid-row:auto}.concept-gallery-item:nth-child(4) img{object-position:50% 35%}
+@media(max-width:1023px),(max-height:699px){.concept-image-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:clamp(220px,35svh,400px);gap:8px}}
+@media(max-width:360px){.concept-image-grid{grid-auto-rows:220px}}
+
+@media(min-width:1024px) and (min-height:700px){.concept-section .english-section-title{font-size:clamp(46px,4.2vw,72px)}.concept-section .section-heading .eyebrow{margin-bottom:8px}.concept-section .section-description{margin-top:8px}.concept-gallery-meta{margin-bottom:10px;padding-top:8px}}

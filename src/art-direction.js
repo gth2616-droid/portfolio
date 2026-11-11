@@ -1,23 +1,25 @@
-// Native scrolling remains intact; the header only reflects the reader's position.
+import {getSectionPanels} from './section-panels.js';
+// Shared section order drives the chapter rail and current-location labels.
 export function mountArtDirection() {
   const header = document.querySelector('.header');
   const links = [...header.querySelectorAll('nav a')];
   const route = new Map([
-    ['overview', '#overview'], ['badges', '#badges'], ['badge-collection', '#badges'], ['social-screen', '#digital'], ['poster-screen', '#digital'],
+    ['package-index','#single'],['commerce-screen','#digital'],['footer','#about'],['overview', '#overview'], ['badges', '#badges'], ['badge-collection', '#badges'], ['social-screen', '#digital'], ['poster-screen', '#digital'],
     ...['single', 'full', 'limited', 'daiso', 'display', 'pouch'].map(id => [id, '#single']),
     ['experience', '#experience'], ['digital', '#digital'], ['about', '#about']
   ]);
-  const sections = [...document.querySelectorAll('main > section[id], #social-screen, #poster-screen')];
+  const panels = getSectionPanels();
+  const sections = panels.map(panel => panel.element);
   const rail = document.createElement('nav');
   rail.className = 'screen-rail';
   rail.setAttribute('aria-label', '화면별 바로가기');
-  const names = {cover:'표지',overview:'프로젝트',badges:'대표 배지','badge-collection':'배지 컬렉션',single:'싱글팩',full:'풀박스',limited:'리미티드',daiso:'다이소',display:'디스플레이 박스',pouch:'파우치',experience:'홍보·컨셉',digital:'판매 화면','social-screen':'인스타그램','poster-screen':'포스터',about:'소개'};
-  sections.forEach((section,index) => {
+  panels.forEach((panel,index) => {
     const link = document.createElement('a');
-    link.href = `#${section.id}`;
-    link.setAttribute('aria-label', names[section.id]);
+    link.href = `#${panel.anchor}`;
+    link.dataset.panel = panel.id;
+    link.setAttribute('aria-label', panel.label);
     const label = document.createElement('span');
-    label.textContent = `${String(index+1).padStart(2,'0')} / ${names[section.id]}`;
+    label.textContent = `${String(index+1).padStart(2,'0')} / ${panel.label}`;
     link.append(label);
     rail.append(link);
   });
@@ -37,7 +39,7 @@ export function mountArtDirection() {
     }
     if (progress >= .999) {current = '#about';active = sections.at(-1);}
     stops.forEach(link => {
-      if (link.hash === `#${active.id}`) link.setAttribute('aria-current','location');
+      if (link.dataset.panel === active.id) link.setAttribute('aria-current','location');
       else link.removeAttribute('aria-current');
     });
     header.style.setProperty('--reading-progress', String(progress));

@@ -1,96 +1,82 @@
-# Motion & type portfolio — November 2026
+# Immersive portfolio — November 2026
 
-The portfolio uses a warm ivory / rose / burgundy palette and an expressive
-English/Korean typographic system. Actual product graphics retain their original
-colors, proportions and all AI generation disclosures.
+The portfolio presents actual Teenieping product and package work on warm ivory,
+rose and burgundy surfaces. Source artwork colors, 3D geometry, original vectors,
+prices, project credits and image-generation disclosures are retained.
 
-## Typography
+## Typography and opening
 
-- Syne: geometric English display, collection names and large statistics.
-- Bodoni Moda italic: contrasting editorial English headlines and wordmark.
-- Space Grotesk: English captions, labels and chapter numbers.
-- IBM Plex Sans KR: readable Korean body copy and interface controls.
-- Portfolio Serif (Noto Serif KR subset): Korean editorial subheads.
+Syne supplies the geometric English display; Bodoni Moda italic supplies its
+editorial contrast; Space Grotesk supplies English labels and chapter numbers.
+Korean copy uses IBM Plex Sans KR, with Portfolio Serif for editorial subheads.
+All fonts are local. The three additional Latin WOFF2 families total about 87 KiB,
+and their original OFL licenses are bundled in src/fonts.
 
-Three new Latin variable WOFF2 fonts total about 87 KiB, served locally with
-font-display: swap. Original OFL licenses are bundled in src/fonts. There are no
-third-party font requests when viewing the site.
+The opening places a large English title and concise role description over an
+unframed canvas, with the product photograph extending to the top, right and
+bottom edges. On narrow screens the photograph leads into a readable text block.
+The four lead concept photographs form a tall photographic spread. Tiles use
+object-fit: cover with no internal letterboxing. All 24 images remain available
+through the expansion control and full-resolution image dialog.
 
-## Motion
+## One gesture, one section
 
-- Staggered, clipped hero title entrances, with the product image entering next.
-- One-time scroll entrances for section titles, content and gallery images.
-- Distant in-page navigation uses a burgundy chapter curtain (320ms in, 100ms
-  hold, 400ms out), then reveals the destination. It uses the same anchors and
-  does not intercept ordinary scrolling, modified clicks or the skip link.
-- Product switches, badge filters, SNS changes and asset dialogs receive short
-  transition animations. Product renderer geometry and controls are unchanged.
-- The curtain never captures pointer input or keyboard focus. Reduced motion
-  skips animation and follows native anchors. Changing the preference during a
-  transition cancels motion and completes the requested navigation.
-- Content is visible by default; no reveal CSS leaves unseen sections hidden.
+`section-panels.js` defines one shared DOM-ordered registry for the wheel
+controller, chapter rail and current-location indicator. There are 17 stops,
+including the package chapter opener, commerce, social, posters and the footer.
 
-## References
+On desktop (at least 1024×700 with a fine pointer), `section-scroll.js` intercepts
+vertical page wheel input. One gesture advances to the immediately adjacent
+section in 660ms. A gesture is consumed until wheel events have been idle for
+240ms; continuing trackpad inertia cannot advance additional sections, including
+a stream that lasts beyond the section animation. Large deltas also move one
+section. Ctrl/Meta zoom gestures and predominantly horizontal gestures are kept.
+CSS proximity snapping is disabled while this controller owns navigation.
+
+Arrow keys, Page Up/Down, Space and Home/End work from the page background.
+Interactive fields, buttons, native details, dialogs, 3D stages and independently
+scrollable content keep their own input. Wheel zoom over a package model changes
+the model, and wheel scrolling inside a phone scrolls its screen. Explicitly
+expanded gallery/PDF/advanced material remains readable: that chapter consumes
+its inner document space before a fresh gesture at the edge advances a section.
+
+Anchor jumps use the existing short chapter curtain and the same positioning
+controller. Wheel movement uses a direct eased section slide. Current-location
+hash updates replace rather than flood history. The root remains scrollable so
+native scrollbar, browser history and focus-based navigation stay available.
+
+Reduced motion preserves one-gesture navigation with immediate movement, cancels
+an active animation safely, and skips the curtain. Narrow/short/touch layouts use
+natural document scrolling and hide the chapter rail. Browser resizing also ends
+an active section slide at its destination.
+
+## Screen composition and controls
+
+Desktop sections fill the browser width and use the visible viewport minus the
+72px header as their minimum height. Expanded content and text sizing can grow
+panels naturally. The badge representatives and catalogue are separate screens.
+Package studies alternate image/model emphasis; extra rotation/progress controls
+and production notes live in native details. Model stages and phone frames adapt
+to viewport height. No rendering geometry or original texture data was changed.
+
+## Verification
+
+Run `npm run build`, then `python scripts/check-section-scroll.py` with Python
+Playwright and Chromium installed. Set CHROMIUM_EXECUTABLE_PATH if necessary.
+The script serves dist itself and tests real browser wheel and keyboard input:
+large delta, long inertia stream, a new gesture after settling, reverse direction,
+chapter/footer stops, 3D wheel zoom, phone scrolling, expanded gallery reading,
+keyboard navigation and switching motion preferences during an animation.
+
+Additional checks covered seven viewport combinations from 320×667 to
+1920×1080, original image dialogs, gallery expansion and commerce options at five
+widths. Responsive checks observed no horizontal overflow, browser errors or
+failed image/font resources.
+
+## References consulted
 
 - https://webflow.com/blog/web-design-trends-2026 — dynamic type, minimal copy.
 - https://www.wix.com/blog/web-design-trends — exaggerated hierarchy, tactile art.
 - https://www.awwwards.com/websites/portfolio/ — portfolio reference index.
 
-These references informed the direction; no third-party template code was copied.
-
-## Validation
-
-Chromium checks cover 320, 375, 390, 768, 1024 and 1440px layouts, image expansion,
-gallery controls, mobile navigation, badge filters, preserved content and failed
-resource detection. Additional desktop/mobile checks exercise mouse and keyboard
-curtain navigation, scroll entrances, distinct font roles, changing reduced-motion
-preferences mid-transition, and product viewer interactions. Source aspect ratios
-reserve gallery/poster image space before lazy loading to preserve anchor positions.
-
-## Editorial composition update
-
-The opening is now a full-width title followed by an asymmetric two-image spread;
-on mobile the primary product image precedes the role description. The decorative
-ribbon and arch-shaped image mask have been removed. Representatives form a wide
-three-badge collection opener. Package studies alternate a large image/compact
-viewer with a larger viewer/compact image; source, variant and model controls remain
-inside the same independently addressable package sections.
-
-Concept imagery uses a fixed contact-sheet composition with one lead image,
-four small studies and three wider thumbnails. Thumbnails use contain, so original
-artwork remains fully visible. All 24 source images remain expandable and openable
-at full size. Commerce and Instagram share two aligned desktop columns using CSS
-subgrid, and stack on mobile. Posters retain native ratios in an asymmetric spread.
-The profile has an introductory row followed by experience/education/tools columns.
-
-Additional validation covers work-first mobile ordering, opposite package spreads,
-aligned phone frames, thumbnail expansion and the existing chapter curtain after
-layout changes. The same five locally hosted type families and motion preference
-handling are retained.
-
-## Viewport-sized presentation
-
-The presentation now spans the full browser width, with screen-height minimums
-based on the visible viewport minus the 72px header. Desktop compositions adapt
-to both 1366×768 laptops and 1920×1080 displays. Panels grow naturally for expanded
-content, additional images or user text sizing; there is no fixed-height clipping.
-
-The representative badges and the filterable collection are separate sections.
-Commerce, Instagram and posters each form a screen-sized composition. A 15-stop
-navigation rail exposes named native anchors and the current location. Fine-pointer
-desktop browsers use proximity scroll snapping; normal wheel/touch behavior is
-preserved and reduced motion disables snapping and transitions. Narrow/short
-screens retain the natural document flow and hide the navigation rail.
-
-Package models retain their rendering and geometry logic. Their stage heights
-follow the viewport; fold/reset/display controls stay visible, while additional
-rotation, progress and original production notes are grouped in native details.
-Phone frame scaling accounts for both width and desktop viewport height. A screen
-resize updates the frames and product stages without changing their interaction.
-
-Validation includes seven width/height combinations from 320×667 to 1920×1080,
-all 15 package variants on desktop/mobile, commerce options at five widths, rail
-and curtain destination alignment, natural wheel scrolling, independent 3D wheel
-zoom, advanced controls, gallery/badge controls and changing motion preferences
-mid-transition. No horizontal overflow, browser errors or failed resources were
-observed in the responsive checks.
+These informed the visual direction; no third-party template code was copied.

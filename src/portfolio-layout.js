@@ -1,16 +1,13 @@
 export function renderHeader(){return `<header class="header"><a class="site-name" href="#cover"><span class="site-monogram" aria-hidden="true">yj.</span><span class="site-identity">전유빈<span>PRODUCT & PACKAGE DESIGNER</span></span></a><button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">메뉴 열기</button><nav id="main-nav" aria-label="섹션 이동"><a href="#overview">프로젝트</a><a href="#badges">배지 디자인</a><a href="#single">패키지</a><a href="#experience">홍보·컨셉</a><a href="#digital">디지털 콘텐츠</a><a href="#about">소개</a></nav></header>`;}
 export function renderOpening(asset,photo){return `
-<section class="section cover" id="cover">
- <div class="cover-topline"><p>전유빈 · 제품과 패키지를 디자인합니다.</p><span>SELECTED PROJECT / 2026</span></div>
- <div class="cover-title-block"><div class="cover-project-label"><p class="eyebrow">TEENIEPING / PRODUCT & PACKAGE DESIGN</p><p class="project-license">SAMG Entertainment 공식 라이선스 제품</p></div><h1 lang="en" aria-label="Teenieping Mystery Badge"><span class="hero-line hero-italic"><span>Mystery</span></span><span class="hero-line hero-last"><span>Badge<span class="cover-period">.</span></span></span></h1></div>
- <div class="cover-spread">
-  <div class="cover-visual">${photo('A002',{caption:false,eager:true})}<div class="cover-caption"><span>제품·패키지 전체 라인업</span><span>01 — TEENIEPING</span></div></div>
-  <aside class="cover-aside" aria-label="프로젝트와 담당 소개">
-   <div class="cover-secondary">${photo('T004',{caption:false})}<p>PACKAGE / POUCH / BADGE</p></div>
-   <div class="cover-notes"><p class="project-english">티니핑 미스터리 뱃지</p><p class="cover-subtitle">패키지·배지 디자인부터 케이스 컨택,<br/>OEM 제작 소통까지 전담했습니다.</p><div class="cover-credit"><span>DESIGNED BY</span><p>전유빈 <small>사내 유일 디자이너</small></p></div><div class="cover-actions"><a class="project-link" href="#overview">프로젝트 살펴보기 <span aria-hidden="true">↘</span></a><a class="quiet-link" href="#single">전개도 · 3D 목업 ↗</a></div></div>
-  </aside>
+<section class="section cover immersive-cover" id="cover">
+ <div class="hero-scene cover-visual">${photo('A002',{caption:false,eager:true})}<span class="hero-image-label">01 / TEENIEPING — SELECTED WORK</span></div>
+ <div class="hero-editorial">
+  <div class="hero-meta"><p class="eyebrow">PRODUCT & PACKAGE DESIGN / 2026</p><p class="project-license">SAMG Entertainment 공식 라이선스 제품</p></div>
+  <div class="hero-title"><p class="hero-series" lang="en">Teenieping</p><h1 lang="en" aria-label="Teenieping Mystery Badge"><span class="hero-line hero-italic"><span>Mystery</span></span><span class="hero-line hero-last"><span>Badge<span class="cover-period">.</span></span></span></h1><p class="project-english">티니핑 미스터리 뱃지</p></div>
+  <div class="hero-intro"><p class="cover-subtitle">패키지·배지 디자인부터 케이스 컨택,<br/>OEM 제작 소통까지 전담했습니다.</p><div class="cover-credit"><span>DESIGNED BY</span><p>전유빈 <small>사내 유일 디자이너</small></p></div><div class="cover-actions"><a class="project-link" href="#overview">Explore the project <span aria-hidden="true">↘</span></a><a class="quiet-link" href="#single">전개도 · 3D 목업 ↗</a></div></div>
+  <a class="hero-scroll-cue" href="#overview"><span>SCROLL TO EXPLORE</span><span aria-hidden="true">↓</span></a>
  </div>
- <div class="cover-bottomline"><span>PACKAGE · BADGE · DIGITAL CONTENT</span><a href="#badges">컬렉션 살펴보기 <span aria-hidden="true">↘</span></a></div>
 </section>
 <section class="section project-overview" id="overview">
  <div class="overview-intro"><p class="eyebrow">01 — PROJECT & MY ROLE</p><h2>디자인부터 제작 소통까지,<br/>한 사람이 연결한 작업.</h2><p>랜덤 배지를 수집하고, 자석으로 놀고,<br class="desktop-break"/> 크리스탈 케이스에 보관·전시하는 완구입니다.</p><p class="planning-credit">대표와 실장이 입사 전에 기획한 제품으로,<br/>신입 입사 후 수습기간을 마치고 제작에 참여했습니다.</p></div>

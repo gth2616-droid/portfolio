@@ -1,5 +1,6 @@
+import {scrollToSection} from './section-scroll.js';
 const titles = {
-  cover: ['01', 'Selected work'], overview: ['01', 'The project'], badges: ['02', 'Badge collection'],
+  'package-index':['03','Package studies'],footer:['11','Yubin Jeon'],cover: ['01', 'Selected work'], overview: ['01', 'The project'], badges: ['02', 'Badge collection'],
   'badge-collection': ['02', 'The collection'], 'social-screen': ['10', 'Instagram'], 'poster-screen': ['10', 'Poster & promotion'], single: ['03', 'Single pack'], full: ['04', 'Full box'], limited: ['05', 'Limited edition'],
   daiso: ['06', 'Retail edition'], display: ['07', 'Display box'], pouch: ['08', 'Badge pouch'],
   experience: ['09', 'Visual stories'], digital: ['10', 'Digital experience'], about: ['11', 'Behind the work']
@@ -35,7 +36,7 @@ export function mountStudioMotion() {
   });
   play(document.querySelector('.cover-visual'), [{opacity: .2, transform: 'translateY(35px) rotate(2deg)'}, {opacity: 1, transform: 'translateY(0) rotate(0deg)'}], {duration: 1000, delay: 180});
 
-  // A short curtain connects distant chapters; normal wheel/touch scrolling is untouched.
+  // A short curtain connects anchor jumps; the section controller owns wheel navigation.
   const curtain = document.createElement('div');
   curtain.className = 'chapter-curtain';
   curtain.setAttribute('aria-hidden', 'true');
@@ -45,8 +46,7 @@ export function mountStudioMotion() {
   let transition = null;
   function navigate(hash, target) {
     if (location.hash !== hash) history.pushState(null, '', hash);
-    const offset = parseFloat(getComputedStyle(target).scrollMarginTop) || 90;
-    window.scrollTo({top: Math.max(0, target.getBoundingClientRect().top + scrollY - offset), behavior: 'instant'});
+    scrollToSection(target, {instant:true});
   }
   document.addEventListener('click', async event => {
     const link = event.target.closest('a[href^="#"]');
