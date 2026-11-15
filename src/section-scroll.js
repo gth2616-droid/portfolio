@@ -41,11 +41,12 @@ export function mountSectionScroll() {
       window.scrollTo({top:end,behavior:'instant'});
       return;
     }
-    const start = scrollY, started = performance.now(), duration = 660;
+    const start = scrollY, started = performance.now(), duration = 980;
     moving = true; destination = target; root.dataset.sectionMoving = 'true';
     function tick(now) {
       const time = Math.min(1, (now-started)/duration);
-      const ease = time < .5 ? 4*time*time*time : 1-Math.pow(-2*time+2,3)/2;
+      // A continuous quintic curve avoids the midpoint acceleration change.
+      const ease = time*time*time*(time*(time*6-15)+10);
       window.scrollTo({top:start+(end-start)*ease,behavior:'instant'});
       if (time<1) frame=requestAnimationFrame(tick);
       else stop();

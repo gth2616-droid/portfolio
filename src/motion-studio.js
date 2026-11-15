@@ -63,10 +63,10 @@ export function mountStudioMotion() {
     const active = {hash,target};
     transition = active;
     try {
-      await play(curtain, [{transform:'translateY(100%)'},{transform:'translateY(0)'}], {duration:320, easing:'cubic-bezier(.76,0,.24,1)', fill:'forwards'})?.finished;
+      await play(curtain, [{transform:'translateY(100%)'},{transform:'translateY(0)'}], {duration:420, easing:'cubic-bezier(.65,0,.35,1)', fill:'forwards'})?.finished;
       navigate(hash,target);
       play(curtain.querySelector('.curtain-copy'), [{opacity:.25,transform:'translateY(12px)'},{opacity:1,transform:'translateY(0)'}], {duration:260});
-      await play(curtain, [{transform:'translateY(0)'},{transform:'translateY(-100%)'}], {duration:400, delay:100, easing:'cubic-bezier(.76,0,.24,1)', fill:'forwards'})?.finished;
+      await play(curtain, [{transform:'translateY(0)'},{transform:'translateY(-100%)'}], {duration:500, delay:80, easing:'cubic-bezier(.65,0,.35,1)', fill:'forwards'})?.finished;
     } catch {
       // Preference changes or cancellation must still complete the requested navigation.
       if (transition === active) navigate(hash,target);

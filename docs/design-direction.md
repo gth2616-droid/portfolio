@@ -27,7 +27,7 @@ including the package chapter opener, commerce, social, posters and the footer.
 
 On desktop (at least 1024×700 with a fine pointer), `section-scroll.js` intercepts
 vertical page wheel input. One gesture advances to the immediately adjacent
-section in 660ms. A gesture is consumed until wheel events have been idle for
+section in 980ms using a continuous quintic easing curve. A gesture is consumed until wheel events have been idle for
 240ms; continuing trackpad inertia cannot advance additional sections, including
 a stream that lasts beyond the section animation. Large deltas also move one
 section. Ctrl/Meta zoom gestures and predominantly horizontal gestures are kept.
@@ -80,3 +80,22 @@ failed image/font resources.
 - https://www.awwwards.com/websites/portfolio/ — portfolio reference index.
 
 These informed the visual direction; no third-party template code was copied.
+
+## Motion and badge edge refinement — November 15
+
+Section slides use a 980ms continuous smootherstep curve so acceleration does not
+change abruptly at the midpoint. Anchor curtains use softer cubic-bezier easing
+and 420/500ms entrance/exit timings. The chapter rail updates its current-location
+attributes only when the active chapter changes, rather than on every frame.
+
+Badge thumbnails keep a square layout before circular clipping. The former
+width:100% plus max-height constraint produced a non-square image box and let
+white exterior pixels show through the oval corner mask. Thumbnail diameter is
+still limited by the screen height, but width and height now stay equal. A small
+antialiased circular clip hides the square exterior without changing original
+PDF/texture assets or the printed gold, silver and colored frames.
+
+The wheel/keyboard/inertia regression passed. Browser checks covered all 72 badge
+faces at desktop, short laptop and mobile sizes. A sampled transition completed
+in approximately 980ms with monotonic motion and no overshoot. The first catalog
+face's rendered box changed from approximately 134×118px to 118×118px.

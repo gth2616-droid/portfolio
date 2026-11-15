@@ -27,6 +27,7 @@ export function mountArtDirection() {
   const stops = [...rail.querySelectorAll('a')];
   let queued = false;
   let previous;
+  let previousActive;
   function updatePosition() {
     const available = document.documentElement.scrollHeight - innerHeight;
     const progress = available > 0 ? Math.min(1, Math.max(0, scrollY / available)) : 0;
@@ -38,10 +39,13 @@ export function mountArtDirection() {
       else break;
     }
     if (progress >= .999) {current = '#about';active = sections.at(-1);}
-    stops.forEach(link => {
-      if (link.dataset.panel === active.id) link.setAttribute('aria-current','location');
-      else link.removeAttribute('aria-current');
-    });
+    if (active.id !== previousActive) {
+      stops.forEach(link => {
+        if (link.dataset.panel === active.id) link.setAttribute('aria-current','location');
+        else link.removeAttribute('aria-current');
+      });
+      previousActive = active.id;
+    }
     header.style.setProperty('--reading-progress', String(progress));
     if (current !== previous) {
       links.forEach(link => {

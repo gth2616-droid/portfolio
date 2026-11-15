@@ -45,3 +45,11 @@ html[data-section-scroll]{scroll-snap-type:none!important;scroll-behavior:auto!i
 @media(max-width:360px){.concept-image-grid{grid-auto-rows:220px}}
 
 @media(min-width:1024px) and (min-height:700px){.concept-section .english-section-title{font-size:clamp(46px,4.2vw,72px)}.concept-section .section-heading .eyebrow{margin-bottom:8px}.concept-section .section-description{margin-top:8px}.concept-gallery-meta{margin-bottom:10px;padding-top:8px}}
+
+/* Hide only the thumbnail's white square exterior; preserve the printed frame. */
+.badge-sample-button img,.badge-catalog-item img{border-radius:50%;clip-path:circle(49.8% at 50% 50%)}
+.badge-catalog-item:hover:not(:disabled){background:transparent}
+/* Keep the painted face square before clipping, including height-limited desktop grids. */
+.badge-catalog-item img{width:100%;height:auto;max-height:none;aspect-ratio:1;object-fit:cover;margin-inline:auto}
+@media(min-width:1024px) and (min-height:700px){.badge-catalog-item img{width:min(100%,clamp(95px,13svh,185px));max-height:none}}
+@media(min-width:1024px) and (min-height:700px) and (max-height:819px){.badge-catalog-item img{width:min(100%,85px)}}

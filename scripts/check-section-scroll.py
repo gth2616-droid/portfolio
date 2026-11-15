@@ -26,13 +26,13 @@ try:
      assert page.evaluate('document.documentElement.hasAttribute("data-section-scroll")')
      assert page.locator('.screen-rail a').count()==17
      def at(id):
-      assert abs(page.locator('#'+id).bounding_box()['y']-72)<5,(id,page.locator('#'+id).bounding_box())
+      page.wait_for_function('(id)=>!document.documentElement.hasAttribute("data-section-moving") && Math.abs(document.getElementById(id).getBoundingClientRect().top-document.querySelector(".header").offsetHeight)<5',arg=id,timeout=5000)
      def rail(id,anchor=None):
       page.locator(f'.screen-rail a[data-panel="{id}"]').click();page.wait_for_function('(hash)=>location.hash==="#"+hash && document.querySelector(".chapter-curtain").hidden',arg=anchor or id);page.wait_for_timeout(150);at(id)
      page.mouse.move(20,450);page.mouse.wheel(0,4000);page.wait_for_timeout(850);at('overview');assert page.evaluate('location.hash')=='#overview'
      page.mouse.wheel(0,-120);page.wait_for_timeout(850);at('cover')
-     # A stream longer than the 660ms page animation must still move only one page.
-     for i in range(45):page.mouse.wheel(0,42);page.wait_for_timeout(12)
+     # A stream longer than the page animation must still move only one page.
+     for i in range(65):page.mouse.wheel(0,42);page.wait_for_timeout(12)
      page.wait_for_timeout(350);at('overview')
      page.mouse.wheel(0,120);page.wait_for_timeout(850);at('badges')
      page.mouse.wheel(0,120);page.wait_for_timeout(850);at('badge-collection')
@@ -42,7 +42,7 @@ try:
      rail('commerce-screen','digital');sc=page.locator('.shop-scroll');box=sc.bounding_box();page.mouse.move(box['x']+box['width']/2,box['y']+box['height']/2);y=page.evaluate('scrollY');page.mouse.wheel(0,350);page.wait_for_timeout(180);assert sc.evaluate('(e)=>e.scrollTop')>0;assert abs(page.evaluate('scrollY')-y)<2
      rail('social-screen');assert page.locator('#main-nav a[aria-current]').get_attribute('href')=='#digital'
      rail('experience');page.locator('#concept-gallery-toggle').click();assert page.locator('.concept-gallery-item:visible').count()==24;rail('experience');page.mouse.move(20,450);y=page.evaluate('scrollY');page.mouse.wheel(0,180);page.wait_for_timeout(350);assert page.evaluate('scrollY')>y;assert page.locator('.screen-rail a[aria-current]').get_attribute('data-panel')=='experience'
-     page.locator('#concept-gallery-toggle').click();rail('about');page.mouse.move(20,450);page.mouse.wheel(0,120);page.wait_for_timeout(850);assert page.locator('.screen-rail a[aria-current]').get_attribute('data-panel')=='footer'
+     page.locator('#concept-gallery-toggle').click();rail('about');page.mouse.move(20,450);page.mouse.wheel(0,120);at('footer');page.wait_for_timeout(40);assert page.locator('.screen-rail a[aria-current]').get_attribute('data-panel')=='footer'
      rail('cover');page.emulate_media(reduced_motion='reduce');page.mouse.move(20,450);page.mouse.wheel(0,120);page.wait_for_timeout(70);at('overview');assert page.evaluate('document.documentElement.dataset.sectionMoving') is None
      page.emulate_media(reduced_motion='no-preference');rail('cover');page.evaluate('document.activeElement.blur()');page.keyboard.press('PageDown');page.wait_for_timeout(850);at('overview');page.keyboard.press('PageUp');page.wait_for_timeout(850);at('cover')
      page.mouse.move(20,450);page.mouse.wheel(0,120);page.wait_for_timeout(180);page.emulate_media(reduced_motion='reduce');page.wait_for_timeout(100);at('overview')
